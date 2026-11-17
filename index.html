@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="am">
 <head>
@@ -9,581 +8,493 @@
 
 <style>
 :root{
-  --navy:#102b46;
-  --blue:#1769aa;
-  --light:#eef4f8;
-  --white:#fff;
-  --green:#16845b;
-  --red:#c73535;
-  --orange:#e58b21;
-  --text:#243447;
-  --muted:#68798b;
-  --border:#dce5ed;
-  --shadow:0 4px 18px rgba(16,43,70,.08);
+--navy:#102b46;--blue:#1769aa;--light:#eef4f8;
+--green:#16845b;--red:#c73535;--orange:#e58b21;
+--text:#243447;--muted:#68798b;--border:#dce5ed;
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Ethiopic",sans-serif;
-  background:var(--light);
-  color:var(--text);
-}
-header{
-  background:linear-gradient(135deg,#102b46,#1769aa);
-  color:white;
-  padding:18px 15px;
-}
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
+body{margin:0;font-family:Arial,"Noto Sans Ethiopic",sans-serif;background:var(--light);color:var(--text)}
+header{background:linear-gradient(135deg,#102b46,#1769aa);color:white;padding:18px}
+.header-inner,main{max-width:1100px;margin:auto}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:48px;height:48px;
-  border-radius:14px;
-  background:white;color:var(--navy);
-  display:grid;place-items:center;
-  font-size:25px;font-weight:bold;
-}
+.logo{width:48px;height:48px;border-radius:14px;background:white;color:var(--navy);display:grid;place-items:center;font-size:25px;font-weight:bold}
 .brand h1{font-size:21px;margin:0 0 5px}
-.brand p{font-size:12px;margin:0;opacity:.9}
-.lang{
-  background:white;color:var(--navy);
-  border:0;border-radius:9px;
-  padding:10px 12px;font-weight:bold;
-  cursor:pointer;
-}
-.notice{
-  max-width:1100px;
-  margin:12px auto 0;
-  padding:10px 14px;
-  background:#fff4db;color:#795315;
-  border-radius:9px;font-size:13px;
-}
-nav{
-  background:white;
-  position:sticky;top:0;z-index:10;
-  box-shadow:0 2px 8px #00000010;
-  overflow-x:auto;
-}
-.nav-inner{
-  max-width:1100px;margin:auto;
-  display:flex;gap:4px;padding:8px;
-  min-width:max-content;
-}
-nav button{
-  border:0;background:transparent;
-  padding:11px 13px;border-radius:8px;
-  color:var(--navy);font-weight:bold;
-  cursor:pointer;font-size:13px;
-}
-nav button.active,nav button:hover{
-  background:var(--navy);color:white;
-}
-main{max-width:1100px;margin:20px auto;padding:0 14px}
+.brand p{font-size:12px;margin:0}
+.notice{margin-top:12px;padding:10px 14px;background:#fff4db;color:#795315;border-radius:9px;font-size:13px;line-height:1.7}
+nav{background:white;position:sticky;top:0;z-index:10;overflow-x:auto;box-shadow:0 2px 8px #0001}
+.nav-inner{max-width:1100px;margin:auto;display:flex;gap:4px;padding:8px;min-width:max-content}
+nav button{border:0;background:transparent;padding:11px 13px;border-radius:8px;color:var(--navy);font-weight:bold;cursor:pointer}
+nav button.active,nav button:hover{background:var(--navy);color:white}
+main{padding:20px 14px}
 .page{display:none}
 .page.active{display:block}
-.hero{
-  background:linear-gradient(135deg,#153b5c,#1769aa);
-  color:white;border-radius:16px;
-  padding:25px 20px;margin-bottom:18px;
-}
-.hero h2{font-size:25px;margin:0 0 10px}
-.hero p{line-height:1.8;margin:0;max-width:700px}
-.section-title{margin:22px 0 13px;color:var(--navy)}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:13px;
-}
-.card{
-  background:white;border-radius:13px;
-  padding:17px;box-shadow:var(--shadow);
-  border:1px solid var(--border);
-}
-.card-icon{font-size:28px;margin-bottom:10px}
-.card h3{margin:0 0 8px;color:var(--navy);font-size:17px}
-.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
-.action{
-  margin-top:14px;border:0;
-  border-radius:8px;padding:11px 14px;
-  background:var(--blue);color:white;
-  font-weight:bold;cursor:pointer;
-}
-.action.green{background:var(--green)}
-.action.red{background:var(--red)}
-.action.orange{background:var(--orange)}
-.action.secondary{background:#e8eef4;color:var(--navy)}
-.form-card{
-  background:white;padding:18px;
-  border-radius:13px;box-shadow:var(--shadow);
-  margin-bottom:16px;
-}
-.form-card h3{margin-top:0;color:var(--navy)}
-label{
-  display:block;font-size:13px;
-  font-weight:bold;margin:13px 0 6px;
-}
-input,select,textarea{
-  width:100%;padding:12px;
-  border:1px solid #ccd8e3;border-radius:8px;
-  font-size:14px;background:white;
-  font-family:inherit;
-}
-textarea{min-height:95px;resize:vertical}
-input:focus,select:focus,textarea:focus{
-  outline:2px solid #9bc9ec;border-color:var(--blue);
-}
-.small{font-size:12px;color:var(--muted);line-height:1.7}
-.alert{
-  padding:13px;border-radius:9px;
-  margin:10px 0;line-height:1.7;
-  font-size:13px;
-}
-.alert.info{background:#e7f2fc;color:#164e7a}
-.alert.warning{background:#fff1dc;color:#80500b}
-.alert.danger{background:#fdeaea;color:#8e2424}
-.alert.success{background:#e5f6ed;color:#17643e}
+.hero{background:linear-gradient(135deg,#153b5c,#1769aa);color:white;border-radius:16px;padding:25px 20px;margin-bottom:18px}
+.hero h2{margin:0 0 10px}
+.hero p{line-height:1.8;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.card,.form-card,.record{background:white;border-radius:13px;padding:17px;border:1px solid var(--border);margin-bottom:13px}
+.card h3,.form-card h3,.record h4{color:var(--navy)}
+.card p,.small{color:var(--muted);font-size:13px;line-height:1.7}
+.action{margin-top:12px;border:0;border-radius:8px;padding:11px 14px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}
+.green{background:var(--green)}.red{background:var(--red)}.orange{background:var(--orange)}
+.secondary{background:#e8eef4;color:var(--navy)}
+label{display:block;font-size:13px;font-weight:bold;margin:13px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccd8e3;border-radius:8px;font-size:14px;font-family:inherit;background:white}
+textarea{min-height:95px}
+.alert{padding:13px;border-radius:9px;margin:10px 0;font-size:13px;line-height:1.7}
+.info{background:#e7f2fc;color:#164e7a}
+.warning{background:#fff1dc;color:#80500b}
+.success{background:#e5f6ed;color:#17643e}
+.danger{background:#fdeaea;color:#8e2424}
 .tabs{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
-.tabs button{
-  padding:9px 12px;border:1px solid var(--border);
-  background:white;border-radius:8px;
-  cursor:pointer;color:var(--navy);
-}
+.tabs button{padding:9px 12px;border:1px solid var(--border);background:white;border-radius:8px;color:var(--navy)}
 .tabs button.active{background:var(--navy);color:white}
-.record{
-  background:white;padding:14px;
-  border-radius:10px;border:1px solid var(--border);
-  margin:10px 0;
-}
-.record h4{margin:0 0 7px;color:var(--navy)}
-.record p{font-size:13px;line-height:1.7;margin:5px 0}
-.empty{
-  padding:20px;text-align:center;
-  background:white;border:1px dashed #b8c8d6;
-  border-radius:10px;color:var(--muted);
-}
-footer{
-  background:var(--navy);color:white;
-  text-align:center;padding:22px 12px;
-  margin-top:35px;font-size:12px;line-height:1.8;
-}
 .hidden{display:none!important}
-.contact-number{
-  font-size:13px;color:var(--muted);
-  margin-top:8px;
-}
-@media(max-width:500px){
-  .brand h1{font-size:18px}
-  .brand p{font-size:10px}
-  .logo{width:42px;height:42px}
-  .hero h2{font-size:21px}
-  main{padding:0 10px}
-}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row>*{flex:1}
+footer{background:var(--navy);color:white;text-align:center;padding:22px;margin-top:35px;font-size:12px;line-height:1.8}
+@media(max-width:500px){.brand h1{font-size:18px}.logo{width:42px;height:42px}main{padding:12px 9px}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="brand">
-      <div class="logo">360</div>
-      <div>
-        <h1>SAFETY 360</h1>
-        <p data-am="የገደብ ወረዳ የሕዝብ ደህንነት መድረክ"
-           data-en="Gedeb Woreda Community Safety Platform">
-          የገደብ ወረዳ የሕዝብ ደህንነት መድረክ
-        </p>
-      </div>
-    </div>
-    <button class="lang" onclick="toggleLanguage()">English</button>
-  </div>
-  <div class="notice" data-am="ማስታወሻ፦ Safety 360 የማኅበረሰብ የደህንነት መድረክ ሙከራ ነው። ከፖሊስ ወይም ከመንግሥት ተቋም ጋር ይፋዊ ግንኙነት እስኪመሠረት ድረስ ይፋዊ የመንግሥት ድረ-ገጽ አይደለም።"
-       data-en="Notice: Safety 360 is a community safety platform prototype. It is not an official government or police website unless formally authorized.">
-    ማስታወሻ፦ Safety 360 የማኅበረሰብ የደህንነት መድረክ ሙከራ ነው። ከፖሊስ ወይም ከመንግሥት ተቋም ጋር ይፋዊ ግንኙነት እስኪመሠረት ድረስ ይፋዊ የመንግሥት ድረ-ገጽ አይደለም።
-  </div>
+<div class="header-inner">
+<div class="brand">
+<div class="logo">360</div>
+<div>
+<h1>SAFETY 360</h1>
+<p>የገደብ ወረዳ የሕዝብ ደህንነት መድረክ</p>
+</div>
+</div>
+</div>
+<div class="notice">
+ማስታወሻ፦ Safety 360 የማኅበረሰብ መድረክ ነው።
+ይፋዊ የመንግሥት ወይም የፖሊስ ድረ-ገጽ አይደለም።
+በአስቸኳይ ሁኔታ በቀጥታ ተገቢውን አገልግሎት ያግኙ።
+</div>
 </header>
 
 <nav>
-  <div class="nav-inner">
-    <button class="active" onclick="showPage('home',this)" data-am="መነሻ" data-en="Home">መነሻ</button>
-    <button onclick="showPage('report',this)" data-am="ክስተት ሪፖርት" data-en="Report Incident">ክስተት ሪፖርት</button>
-    <button onclick="showPage('missing',this)" data-am="የጠፉ ሰዎችና ንብረት" data-en="Missing & Found">የጠፉ ሰዎችና ንብረት</button>
-    <button onclick="showPage('alerts',this)" data-am="ማስጠንቀቂያ" data-en="Safety Alerts">ማስጠንቀቂያ</button>
-    <button onclick="showPage('help',this)" data-am="እርዳታና ግንኙነት" data-en="Help & Contact">እርዳታና ግንኙነት</button>
-  </div>
+<div class="nav-inner">
+<button class="active" data-page="home" onclick="showPage('home',this)">መነሻ</button>
+<button data-page="report" onclick="showPage('report',this)">ክስተት ሪፖርት</button>
+<button data-page="missing" onclick="showPage('missing',this)">የጠፉ/የተገኙ</button>
+<button data-page="alerts" onclick="showPage('alerts',this)">ማስጠንቀቂያ</button>
+<button data-page="help" onclick="showPage('help',this)">እርዳታ</button>
+<button data-page="admin" onclick="showPage('admin',this)">Admin Login</button>
+</div>
 </nav>
 
 <main>
 
-<!-- HOME -->
 <section id="home" class="page active">
-  <div class="hero">
-    <h2 data-am="ደህንነት የሁላችን ኃላፊነት ነው"
-        data-en="Safety is Everyone's Responsibility">
-      ደህንነት የሁላችን ኃላፊነት ነው
-    </h2>
-    <p data-am="Safety 360 የገደብ ወረዳ ነዋሪዎችን ከደህንነት ተቋማት ጋር ለማገናኘት፣ የደህንነት መረጃን ለማሰራጨትና የማኅበረሰብ ትብብርን ለማጠናከር የተዘጋጀ መድረክ ነው።"
-       data-en="Safety 360 is designed to connect residents with safety institutions, share safety information, and strengthen community cooperation.">
-      Safety 360 የገደብ ወረዳ ነዋሪዎችን ከደህንነት ተቋማት ጋር ለማገናኘት፣ የደህንነት መረጃን ለማሰራጨትና የማኅበረሰብ ትብብርን ለማጠናከር የተዘጋጀ መድረክ ነው።
-    </p>
-  </div>
-
-  <h3 class="section-title" data-am="ዋና አገልግሎቶች" data-en="Main Services">ዋና አገልግሎቶች</h3>
-  <div class="grid">
-    <div class="card">
-      <div class="card-icon">🚨</div>
-      <h3 data-am="ክስተት ሪፖርት" data-en="Incident Reporting">ክስተት ሪፖርት</h3>
-      <p data-am="የደህንነት ችግርን ወይም አደጋን ለመመዝገብ።"
-         data-en="Submit information about a safety incident or emergency.">የደህንነት ችግርን ወይም አደጋን ለመመዝገብ።</p>
-      <button class="action" onclick="go('report')" data-am="ሪፖርት አድርግ" data-en="Report Now">ሪፖርት አድርግ</button>
-    </div>
-    <div class="card">
-      <div class="card-icon">🔎</div>
-      <h3 data-am="የጠፉ ሰዎችና ንብረት" data-en="Missing People & Property">የጠፉ ሰዎችና ንብረት</h3>
-      <p data-am="የጠፋ ወይም የተገኘ ሰውና ንብረት መረጃ ለማስገባት።"
-         data-en="Submit missing or found people and property information.">የጠፋ ወይም የተገኘ ሰውና ንብረት መረጃ ለማስገባት።</p>
-      <button class="action" onclick="go('missing')" data-am="ክፍሉን ክፈት" data-en="Open Section">ክፍሉን ክፈት</button>
-    </div>
-    <div class="card">
-      <div class="card-icon">⚠️</div>
-      <h3 data-am="የደህንነት ማስጠንቀቂያ" data-en="Safety Alerts">የደህንነት ማስጠንቀቂያ</h3>
-      <p data-am="የአደጋ መከላከያና የደህንነት ጥንቃቄ መረጃዎችን ለማየት።"
-         data-en="Read safety guidance and preventive alerts.">የአደጋ መከላከያና የደህንነት ጥንቃቄ መረጃዎችን ለማየት።</p>
-      <button class="action" onclick="go('alerts')" data-am="ማስጠንቀቂያዎችን እይ" data-en="View Alerts">ማስጠንቀቂያዎችን እይ</button>
-    </div>
-    <div class="card">
-      <div class="card-icon">🤝</div>
-      <h3 data-am="እርዳታና ግንኙነት" data-en="Help & Contact">እርዳታና ግንኙነት</h3>
-      <p data-am="የእርዳታ ጥያቄና የተቋማት መረጃ ለማግኘት።"
-         data-en="Find support information and submit a help request.">የእርዳታ ጥያቄና የተቋማት መረጃ ለማግኘት።</p>
-      <button class="action" onclick="go('help')" data-am="እርዳታ ጠይቅ" data-en="Get Help">እርዳታ ጠይቅ</button>
-    </div>
-  </div>
-
-  <div class="alert warning" style="margin-top:18px">
-    <strong data-am="አስቸኳይ ሁኔታ?" data-en="Emergency?">አስቸኳይ ሁኔታ?</strong>
-    <span data-am=" በአስቸኳይ አደጋ ጊዜ በዚህ ድረ-ገጽ ብቻ አትተማመን። በቀጥታ በአካባቢህ ያለውን የፖሊስ፣ የጤና ወይም የእሳት አደጋ አገልግሎት አግኝ።"
-       data-en=" Do not rely on this website alone in an emergency. Contact your local police, health facility, or fire service directly.">
-       በአስቸኳይ አደጋ ጊዜ በዚህ ድረ-ገጽ ብቻ አትተማመን። በቀጥታ በአካባቢህ ያለውን የፖሊስ፣ የጤና ወይም የእሳት አደጋ አገልግሎት አግኝ።
-    </span>
-  </div>
+<div class="hero">
+<h2>ደህንነት የሁላችን ኃላፊነት ነው</h2>
+<p>Safety 360 የገደብ ወረዳ ነዋሪዎችን ከደህንነት መረጃና ከተገቢ የእርዳታ አገልግሎቶች ጋር ለማገናኘት የተዘጋጀ መድረክ ነው።</p>
+</div>
+<div class="grid">
+<div class="card"><h3>🚨 ክስተት ሪፖርት</h3><p>የደህንነት ችግርን ለማሳወቅ።</p><button class="action" onclick="go('report')">ሪፖርት አድርግ</button></div>
+<div class="card"><h3>🔎 የጠፉ/የተገኙ</h3><p>የጠፋ ወይም የተገኘ መረጃ።</p><button class="action" onclick="go('missing')">ክፍሉን ክፈት</button></div>
+<div class="card"><h3>⚠️ ማስጠንቀቂያ</h3><p>የደህንነት ጥንቃቄ መረጃዎች።</p><button class="action" onclick="go('alerts')">እይ</button></div>
+<div class="card"><h3>🤝 እርዳታ</h3><p>የእርዳታ ጥያቄ ለማስገባት።</p><button class="action" onclick="go('help')">እርዳታ ጠይቅ</button></div>
+</div>
+<div class="alert warning">ይህ መድረክ የአስቸኳይ ጊዜ አገልግሎትን አይተካም። ያልተረጋገጠ መረጃ አታሰራጩ።</div>
 </section>
 
-<!-- INCIDENT REPORT -->
 <section id="report" class="page">
-  <div class="hero">
-    <h2 data-am="የደህንነት ክስተት ሪፖርት" data-en="Safety Incident Report">የደህንነት ክስተት ሪፖርት</h2>
-    <p data-am="የተከሰተውን ክስተት በጥንቃቄና በትክክል ይግለጹ።"
-       data-en="Describe the incident accurately and carefully.">የተከሰተውን ክስተት በጥንቃቄና በትክክል ይግለጹ።</p>
-  </div>
-
-  <div class="alert info" data-am="ይህ የሙከራ ቅጽ ነው። አሁን ያስገቡት መረጃ ወደ ፖሊስ አይላክም። የግል ወይም ሚስጥራዊ መረጃ አታስገቡ።"
-       data-en="This is a demonstration form. Reports are not sent to police. Do not enter sensitive personal information.">
-    ይህ የሙከራ ቅጽ ነው። አሁን ያስገቡት መረጃ ወደ ፖሊስ አይላክም። የግል ወይም ሚስጥራዊ መረጃ አታስገቡ።
-  </div>
-
-  <form class="form-card" onsubmit="submitDemo(event,'incident')">
-    <h3 data-am="የክስተት መረጃ" data-en="Incident Details">የክስተት መረጃ</h3>
-    <label data-am="የክስተት ዓይነት" data-en="Incident Type">የክስተት ዓይነት</label>
-    <select required>
-      <option value="">ይምረጡ / Select</option>
-      <option>የስርቆት ጥርጣሬ / Theft concern</option>
-      <option>የግጭት ሁኔታ / Conflict</option>
-      <option>የትራፊክ አደጋ / Traffic accident</option>
-      <option>የእሳት አደጋ / Fire</option>
-      <option>ሌላ / Other</option>
-    </select>
-    <label data-am="የክስተቱ ቦታ" data-en="Location">የክስተቱ ቦታ</label>
-    <input required placeholder="ምሳሌ፦ ገደብ ከተማ / Example: Gedeb town">
-    <label data-am="የተከሰተበት ቀን" data-en="Date">የተከሰተበት ቀን</label>
-    <input type="date" required>
-    <label data-am="የክስተቱ መግለጫ" data-en="Description">የክስተቱ መግለጫ</label>
-    <textarea required placeholder="እባክዎ የተከሰተውን ይግለጹ..."></textarea>
-    <button class="action" type="submit" data-am="ለሙከራ አስገባ" data-en="Submit Demo">ለሙከራ አስገባ</button>
-  </form>
+<div class="hero"><h2>የደህንነት ክስተት ሪፖርት</h2><p>የተከሰተውን በትክክል ይግለጹ።</p></div>
+<div class="alert info">ሪፖርቶች በዳታቤዝ ይቀመጣሉ፤ በቀጥታ ወደ ፖሊስ አይላኩም። ሚስጥራዊ መረጃ አታስገቡ።</div>
+<form id="incidentForm" class="form-card">
+<label>የክስተት ዓይነት</label>
+<select name="type" required>
+<option value="">ይምረጡ</option><option>የስርቆት ጥርጣሬ</option><option>ግጭት</option><option>የትራፊክ አደጋ</option><option>እሳት</option><option>ሌላ</option>
+</select>
+<label>ቦታ</label><input name="location" required maxlength="150">
+<label>ቀን</label><input name="date" type="date" required>
+<label>መግለጫ</label><textarea name="description" required maxlength="2000"></textarea>
+<button class="action" type="submit">ሪፖርት አስገባ</button>
+</form>
 </section>
 
-<!-- MISSING AND FOUND -->
 <section id="missing" class="page">
-  <div class="hero">
-    <h2 data-am="የጠፉ ሰዎችና ንብረቶች" data-en="Missing People & Found Property">የጠፉ ሰዎችና ንብረቶች</h2>
-    <p data-am="የጠፋ ሰው፣ የተገኘ ሰው፣ የጠፋ ንብረት ወይም የተገኘ ንብረት መረጃ ለማስገባት።"
-       data-en="Submit information about missing people, found people, lost property, or found property.">
-       የጠፋ ሰው፣ የተገኘ ሰው፣ የጠፋ ንብረት ወይም የተገኘ ንብረት መረጃ ለማስገባት።
-    </p>
-  </div>
-
-  <div class="alert warning" data-am="የሰው ፎቶ፣ ስምና የግል መረጃ ያለ ፈቃድ ለሕዝብ አያሰራጩ። የጠፋ ሰው መረጃ በተገቢው ተቋም መረጋገጥ አለበት።"
-       data-en="Do not publicly share a person's photo or personal details without permission. Missing-person reports must be verified by the appropriate authority.">
-    የሰው ፎቶ፣ ስምና የግል መረጃ ያለ ፈቃድ ለሕዝብ አያሰራጩ። የጠፋ ሰው መረጃ በተገቢው ተቋም መረጋገጥ አለበት።
-  </div>
-
-  <div class="form-card">
-    <h3 data-am="የሪፖርት ዓይነት" data-en="Report Category">የሪፖርት ዓይነት</h3>
-    <div class="tabs">
-      <button class="active" type="button" onclick="setMissingType('የጠፋ ሰው',this)">የጠፋ ሰው</button>
-      <button type="button" onclick="setMissingType('የተገኘ ሰው',this)">የተገኘ ሰው</button>
-      <button type="button" onclick="setMissingType('የጠፋ ንብረት',this)">የጠፋ ንብረት</button>
-      <button type="button" onclick="setMissingType('የተገኘ ንብረት',this)">የተገኘ ንብረት</button>
-    </div>
-
-    <form onsubmit="submitDemo(event,'missing')">
-      <input type="hidden" id="missingType" value="የጠፋ ሰው">
-      <label>ርዕስ / Title</label>
-      <input required placeholder="ምሳሌ፦ የጠፋ ቦርሳ">
-      <label>የተገኘበት ወይም የጠፋበት ቦታ / Location</label>
-      <input required placeholder="ቦታውን ይጻፉ">
-      <label>ቀን / Date</label>
-      <input type="date" required>
-      <label>ዝርዝር መግለጫ / Details</label>
-      <textarea required placeholder="የሚያስፈልገውን መረጃ ይጻፉ"></textarea>
-      <label>የፎቶ ምርጫ / Photo (Optional)</label>
-      <input type="file" accept="image/*" onchange="previewPhoto(event)">
-      <img id="photoPreview" class="hidden" style="max-width:160px;max-height:160px;margin-top:12px;border-radius:8px" alt="Photo preview">
-      <p class="small">የፎቶ ምርጫው ለማሳያ ብቻ ነው፤ ወደ ሰርቨር አይላክም።</p>
-      <button class="action green" type="submit">መረጃ አስገባ</button>
-    </form>
-  </div>
-
-  <h3 class="section-title">የሙከራ ሪፖርቶች</h3>
-  <div id="missingRecords" class="empty">እስካሁን ምንም ሪፖርት የለም።</div>
+<div class="hero"><h2>የጠፉ ሰዎችና ንብረቶች</h2><p>የጠፋ ወይም የተገኘ መረጃ ያስገቡ።</p></div>
+<div class="alert warning">የሰው ስም፣ ፎቶ ወይም የግል መረጃ ያለ ፈቃድ ለሕዝብ አያሰራጩ።</div>
+<form id="missingForm" class="form-card">
+<label>የሪፖርት ዓይነት</label>
+<select name="type" required>
+<option>የጠፋ ሰው</option><option>የተገኘ ሰው</option><option>የጠፋ ንብረት</option><option>የተገኘ ንብረት</option>
+</select>
+<label>ርዕስ</label><input name="title" required maxlength="150">
+<label>ቦታ</label><input name="location" required maxlength="150">
+<label>ቀን</label><input name="date" type="date" required>
+<label>ዝርዝር መግለጫ</label><textarea name="description" required maxlength="2000"></textarea>
+<button class="action green" type="submit">መረጃ አስገባ</button>
+</form>
+<h3>የተፈቀዱ ሪፖርቶች</h3>
+<div id="publicMissing" class="small">መረጃ በመጫን ላይ...</div>
 </section>
 
-<!-- ALERTS -->
 <section id="alerts" class="page">
-  <div class="hero">
-    <h2 data-am="የደህንነት ማስጠንቀቂያ" data-en="Safety Alerts">የደህንነት ማስጠንቀቂያ</h2>
-    <p data-am="ለማኅበረሰቡ የደህንነት ግንዛቤና የአደጋ መከላከያ መረጃ።"
-       data-en="Safety awareness and risk prevention information for the community.">
-      ለማኅበረሰቡ የደህንነት ግንዛቤና የአደጋ መከላከያ መረጃ።
-    </p>
-  </div>
-
-  <div class="tabs">
-    <button class="active" onclick="filterAlerts('all',this)">ሁሉም</button>
-    <button onclick="filterAlerts('crime',this)">ወንጀል</button>
-    <button onclick="filterAlerts('traffic',this)">ትራፊክ</button>
-    <button onclick="filterAlerts('fire',this)">እሳት</button>
-    <button onclick="filterAlerts('general',this)">አጠቃላይ</button>
-  </div>
-
-  <div id="alertList">
-    <div class="record" data-category="crime">
-      <h4>🔐 የንብረት ደህንነት</h4>
-      <p>ቤትዎን ሲለቁ በሮችና መስኮቶች በደንብ መዘጋታቸውን ያረጋግጡ። አጠራጣሪ ነገር ካዩ በቀጥታ ለተገቢው አካል ያሳውቁ።</p>
-    </div>
-    <div class="record" data-category="traffic">
-      <h4>🚦 የትራፊክ ደህንነት</h4>
-      <p>በመንገድ ላይ ሲሄዱ የትራፊክ ምልክቶችን ይከተሉ። ከመንገድ በፊት በሁለቱም አቅጣጫ ይመልከቱ።</p>
-    </div>
-    <div class="record" data-category="fire">
-      <h4>🔥 የእሳት መከላከያ</h4>
-      <p>በኩሽና ውስጥ እሳትን ያለ ክትትል አይተዉ። ተቀጣጣይ ነገሮችን ከእሳት ያርቁ።</p>
-    </div>
-    <div class="record" data-category="general">
-      <h4>🤝 የማኅበረሰብ ትብብር</h4>
-      <p>የማኅበረሰብ ደህንነት በጋራ ትብብር ይጠናከራል። ያልተረጋገጠ ወሬን አያሰራጩ።</p>
-    </div>
-  </div>
-
-  <div class="alert warning">ማስታወሻ፦ ከላይ ያሉት የጥንቃቄ ምክሮች ናቸው፤ የተከሰተ አደጋ ማስጠንቀቂያ ወይም የተረጋገጠ የአካባቢ ዜና አይደሉም።</div>
+<div class="hero"><h2>የደህንነት ማስጠንቀቂያ</h2><p>የጥንቃቄ መረጃዎች።</p></div>
+<div class="record"><h4>🔐 የንብረት ደህንነት</h4><p>ቤትዎን ሲለቁ በሮችና መስኮቶች መዘጋታቸውን ያረጋግጡ።</p></div>
+<div class="record"><h4>🚦 የትራፊክ ደህንነት</h4><p>የትራፊክ ምልክቶችን ይከተሉ። መንገድ ሲያቋርጡ በሁለቱም አቅጣጫ ይመልከቱ።</p></div>
+<div class="record"><h4>🔥 የእሳት መከላከያ</h4><p>እሳትን ያለ ክትትል አይተዉ፤ ተቀጣጣይ ነገሮችን ያርቁ።</p></div>
+<div class="record"><h4>🤝 የማኅበረሰብ ትብብር</h4><p>ያልተረጋገጠ ወሬን አያሰራጩ።</p></div>
 </section>
 
-<!-- HELP -->
 <section id="help" class="page">
-  <div class="hero">
-    <h2 data-am="እርዳታና ግንኙነት" data-en="Help & Contact">እርዳታና ግንኙነት</h2>
-    <p data-am="በአካባቢዎ ካሉ ተገቢ የእርዳታ ተቋማት ጋር ይገናኙ።"
-       data-en="Connect with the appropriate local support institutions.">
-      በአካባቢዎ ካሉ ተገቢ የእርዳታ ተቋማት ጋር ይገናኙ።
-    </p>
-  </div>
+<div class="hero"><h2>እርዳታና ግንኙነት</h2><p>አስቸኳይ ሁኔታ ካለ በቀጥታ ተገቢውን ተቋም ያግኙ።</p></div>
+<div class="grid">
+<div class="card"><h3>👮 ፖሊስ</h3><p>የአካባቢዎን የፖሊስ ጣቢያ በቀጥታ ያግኙ።</p></div>
+<div class="card"><h3>🏥 ጤና</h3><p>በአቅራቢያዎ ያለውን የጤና ተቋም ያግኙ።</p></div>
+<div class="card"><h3>🚒 እሳት አደጋ</h3><p>ከአደጋው ራቁና የአካባቢውን አገልግሎት ያግኙ።</p></div>
+</div>
+<form id="helpForm" class="form-card">
+<h3>የእርዳታ ጥያቄ</h3>
+<div class="alert info">ይህ ጥያቄ በመድረኩ ይቀመጣል፤ የአስቸኳይ እርዳታ ጥሪ አይደለም።</div>
+<label>የእርዳታ ዓይነት</label>
+<select name="type" required><option>የደህንነት እርዳታ</option><option>የጤና እርዳታ</option><option>የአደጋ እርዳታ</option><option>ሌላ</option></select>
+<label>መግለጫ</label><textarea name="description" required maxlength="2000"></textarea>
+<button class="action green" type="submit">ጥያቄ አስገባ</button>
+</form>
+</section>
 
-  <div class="grid">
-    <div class="card">
-      <div class="card-icon">👮</div>
-      <h3>የፖሊስ አገልግሎት</h3>
-      <p>ለደህንነት ጉዳይ፣ ለወንጀል ሪፖርትና ለአስቸኳይ ጥበቃ በአካባቢዎ ያለውን የፖሊስ ጣቢያ ያግኙ።</p>
-      <div class="contact-number">የአካባቢ ጣቢያ መረጃ ይረጋገጥ።</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🏥</div>
-      <h3>የጤና አገልግሎት</h3>
-      <p>ለሕክምና እርዳታና ለጤና አደጋ በአቅራቢያዎ ወዳለው የጤና ተቋም ይሂዱ።</p>
-      <div class="contact-number">የአካባቢ ጤና ተቋም መረጃ ይረጋገጥ።</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🚒</div>
-      <h3>የእሳት አደጋ አገልግሎት</h3>
-      <p>የእሳት አደጋ ሲከሰት ከአደጋው ራቁና በቀጥታ የአካባቢውን የአደጋ ጊዜ አገልግሎት ያግኙ።</p>
-      <div class="contact-number">የአካባቢ አገልግሎት መረጃ ይረጋገጥ።</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🏢</div>
-      <h3>የወረዳና ቀበሌ አስተዳደር</h3>
-      <p>ለማኅበረሰብ ደህንነትና ለአስተዳደራዊ ጉዳዮች በአካባቢዎ ያለውን ቢሮ ያነጋግሩ።</p>
-      <div class="contact-number">የቢሮ አድራሻ መረጃ ይረጋገጥ።</div>
-    </div>
-  </div>
+<section id="admin" class="page">
+<div class="hero"><h2>የአስተዳዳሪ መግቢያ</h2><p>Super Admin እና የተፈቀዱ Moderators ብቻ።</p></div>
+<div id="loginBox" class="form-card">
+<h3>Admin Login</h3>
+<label>Email</label><input id="email" type="email" autocomplete="username">
+<label>Password</label><input id="password" type="password" autocomplete="current-password">
+<button class="action" onclick="login()">Login</button>
+<p class="small">አዲስ አድሚን መፍጠር በዚህ ገጽ አይፈቀድም። ተጠቃሚውን በFirebase Authentication ውስጥ ፍጠር፣ ከዚያ በadmins collection ውስጥ ሚናውን አዘጋጅ።</p>
+</div>
 
-  <div class="form-card" style="margin-top:18px">
-    <h3>የእርዳታ ጥያቄ ቅጽ</h3>
-    <div class="alert info">ይህ የሙከራ ቅጽ ነው። ጥያቄው ወደ ተቋም አይላክም። አስቸኳይ እርዳታ ከፈለጉ በቀጥታ ተቋሙን ያግኙ።</div>
-    <form onsubmit="submitDemo(event,'help')">
-      <label>የእርዳታ ዓይነት</label>
-      <select required>
-        <option value="">ይምረጡ</option>
-        <option>የደህንነት እርዳታ</option>
-        <option>የጤና እርዳታ</option>
-        <option>የአደጋ እርዳታ</option>
-        <option>ሌላ</option>
-      </select>
-      <label>የጉዳዩ አጭር መግለጫ</label>
-      <textarea required placeholder="ጉዳዩን ይግለጹ"></textarea>
-      <button class="action green" type="submit">የሙከራ ጥያቄ አስገባ</button>
-    </form>
-  </div>
+<div id="adminPanel" class="hidden">
+<div class="row">
+<div><h3 id="adminWelcome">Admin</h3><p id="roleLabel" class="small"></p></div>
+<button class="action red" onclick="logout()">Logout</button>
+</div>
+
+<div id="superAdminTools" class="form-card hidden">
+<h3>Moderator ፈቃድ መስጠት</h3>
+<p class="small">ተጠቃሚው በAuthentication ውስጥ አስቀድሞ መኖር አለበት። UID ብቻ ያስገቡ።</p>
+<label>የተጠቃሚ UID</label><input id="modUid" placeholder="Firebase Authentication UID">
+<label>ሚና</label><select id="modRole"><option value="moderator">Moderator</option></select>
+<button class="action" onclick="setRole()">ሚና መድብ</button>
+</div>
+
+<div class="form-card">
+<h3>ሪፖርቶች</h3>
+<div class="tabs">
+<button class="active" onclick="loadReports('all',this)">ሁሉም</button>
+<button onclick="loadReports('incident',this)">ክስተቶች</button>
+<button onclick="loadReports('missing',this)">ጠፋ/ተገኘ</button>
+<button onclick="loadReports('help',this)">እርዳታ</button>
+</div>
+<div id="reportList">መረጃ በመጫን ላይ...</div>
+</div>
+</div>
 </section>
 
 </main>
 
 <footer>
-  <strong>SAFETY 360</strong><br>
-  የገደብ ወረዳ የሕዝብ ደህንነት መድረክ<br>
-  <span>Community Safety • Awareness • Cooperation</span><br>
-  <span>Version 3.0 | Prototype</span>
+<b>SAFETY 360</b><br>
+የገደብ ወረዳ የሕዝብ ደህንነት መድረክ<br>
+Community Safety • Awareness • Cooperation<br>
+Version 4.0
 </footer>
 
-<script>
-let currentLanguage = "am";
-let currentMissingType = "የጠፋ ሰው";
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-function showPage(pageId,button){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  const page=document.getElementById(pageId);
-  if(page) page.classList.add("active");
+import {
+getAuth,onAuthStateChanged,signInWithEmailAndPassword,signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
-  if(button) button.classList.add("active");
-  else{
-    const navButton=[...document.querySelectorAll("nav button")]
-      .find(b=>b.getAttribute("onclick")?.includes("'"+pageId+"'"));
-    if(navButton) navButton.classList.add("active");
-  }
-  window.scrollTo({top:0,behavior:"smooth"});
+import {
+getFirestore,collection,addDoc,serverTimestamp,doc,getDoc,
+setDoc,getDocs,query,where,orderBy,limit,updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig={
+apiKey:"AIzaSyAyp6TkXPsp69-RKQGyUzJWgdc-pQSInA0",
+authDomain:"safety-360-8f4fe.firebaseapp.com",
+projectId:"safety-360-8f4fe",
+storageBucket:"safety-360-8f4fe.firebasestorage.app",
+messagingSenderId:"847898173616",
+appId:"1:847898173616:web:177774b6e6cf02b3895b75",
+measurementId:"G-SL9GRJ2F5L"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+let currentUser=null;
+let currentRole=null;
+
+window.showPage=(id,btn)=>{
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+(btn||document.querySelector(`nav button[data-page="${id}"]`))?.classList.add("active");
+window.scrollTo(0,0);
+};
+
+window.go=id=>showPage(id);
+
+function formData(form){
+return Object.fromEntries(new FormData(form).entries());
 }
 
-function go(pageId){
-  showPage(pageId,null);
+function message(text){
+alert(text);
 }
 
-function toggleLanguage(){
-  currentLanguage=currentLanguage==="am"?"en":"am";
-  document.documentElement.lang=currentLanguage;
-
-  document.querySelectorAll("[data-am][data-en]").forEach(el=>{
-    el.textContent=el.getAttribute("data-"+currentLanguage);
-  });
-
-  document.querySelector(".lang").textContent=
-    currentLanguage==="am"?"English":"አማርኛ";
+async function saveReport(form,type){
+const data=formData(form);
+try{
+await addDoc(collection(db,"reports"),{
+...data,
+category:type,
+status:"pending",
+createdAt:serverTimestamp()
+});
+message("መረጃዎ በተሳካ ሁኔታ ተቀምጧል። ከመታየቱ በፊት በአስተዳዳሪ ይገመገማል።");
+form.reset();
+}catch(error){
+console.error(error);
+message("መረጃው አልተቀመጠም። Firestore Rules ያረጋግጡ። "+error.message);
+}
 }
 
-function submitDemo(event,type){
-  event.preventDefault();
+document.getElementById("incidentForm").addEventListener("submit",event=>{
+event.preventDefault();
+saveReport(event.target,"incident");
+});
 
-  let message="የሙከራ መረጃዎ በዚህ ገጽ ላይ ተቀብሏል። ወደ ማንኛውም ተቋም አልተላከም።";
+document.getElementById("missingForm").addEventListener("submit",event=>{
+event.preventDefault();
+saveReport(event.target,"missing");
+});
 
-  if(type==="missing"){
-    const form=event.target;
-    const inputs=form.querySelectorAll("input:not([type=file]):not([type=hidden]),textarea");
-    const title=inputs[0].value;
-    const location=inputs[1].value;
-    const date=inputs[2].value;
-    const details=inputs[3].value;
+document.getElementById("helpForm").addEventListener("submit",event=>{
+event.preventDefault();
+saveReport(event.target,"help");
+});
 
-    const record=document.createElement("div");
-    record.className="record";
+window.login=async()=>{
+const email=document.getElementById("email").value.trim();
+const password=document.getElementById("password").value;
 
-    const heading=document.createElement("h4");
-    heading.textContent=currentMissingType+" — "+title;
-
-    const p1=document.createElement("p");
-    p1.textContent="ቦታ፦ "+location;
-
-    const p2=document.createElement("p");
-    p2.textContent="ቀን፦ "+date;
-
-    const p3=document.createElement("p");
-    p3.textContent="መግለጫ፦ "+details;
-
-    const status=document.createElement("p");
-    status.className="small";
-    status.textContent="የሙከራ መረጃ — አልተረጋገጠም።";
-
-    record.append(heading,p1,p2,p3,status);
-
-    const list=document.getElementById("missingRecords");
-    if(list.classList.contains("empty")) list.innerHTML="";
-    list.classList.remove("empty");
-    list.prepend(record);
-  }
-
-  alert(currentLanguage==="am"?message:
-    "Demo information received on this page only. It has not been sent to any institution.");
-
-  event.target.reset();
-
-  const preview=document.getElementById("photoPreview");
-  if(preview) preview.classList.add("hidden");
+if(!email||!password){
+return message("Email እና Password ያስገቡ።");
 }
 
-function setMissingType(type,button){
-  currentMissingType=type;
-  document.getElementById("missingType").value=type;
-  document.querySelectorAll("#missing .tabs button").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
+try{
+await signInWithEmailAndPassword(auth,email,password);
+}catch(error){
+message("Login አልተሳካም፦ "+error.message);
+}
+};
+
+window.logout=()=>signOut(auth);
+
+onAuthStateChanged(auth,async user=>{
+currentUser=user;
+
+const loginBox=document.getElementById("loginBox");
+const panel=document.getElementById("adminPanel");
+
+if(!user){
+currentRole=null;
+loginBox.classList.remove("hidden");
+panel.classList.add("hidden");
+return;
 }
 
-function previewPhoto(event){
-  const file=event.target.files[0];
-  const preview=document.getElementById("photoPreview");
+try{
+const snap=await getDoc(doc(db,"admins",user.uid));
 
-  if(!file){
-    preview.classList.add("hidden");
-    return;
-  }
-
-  if(!file.type.startsWith("image/")){
-    alert("እባክዎ የምስል ፋይል ይምረጡ።");
-    event.target.value="";
-    return;
-  }
-
-  const reader=new FileReader();
-  reader.onload=function(e){
-    preview.src=e.target.result;
-    preview.classList.remove("hidden");
-  };
-  reader.readAsDataURL(file);
+if(!snap.exists()||!["superadmin","moderator"].includes(snap.data().role)){
+await signOut(auth);
+message("ይህ መለያ የAdmin ፈቃድ የለውም።");
+return;
 }
 
-function filterAlerts(category,button){
-  document.querySelectorAll("#alerts .tabs button").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
+currentRole=snap.data().role;
+loginBox.classList.add("hidden");
+panel.classList.remove("hidden");
 
-  document.querySelectorAll("#alertList .record").forEach(record=>{
-    record.style.display=
-      category==="all" || record.dataset.category===category
-      ?"block":"none";
-  });
+document.getElementById("adminWelcome").textContent=user.email||"Admin";
+document.getElementById("roleLabel").textContent="Role: "+currentRole;
+
+document.getElementById("superAdminTools").classList.toggle("hidden",currentRole!=="superadmin");
+
+await loadReports("all");
+
+}catch(error){
+console.error(error);
+await signOut(auth);
+message("የፈቃድ መረጃ ማንበብ አልተቻለም። "+error.message);
 }
+});
+
+window.setRole=async()=>{
+if(currentRole!=="superadmin")return;
+
+const uid=document.getElementById("modUid").value.trim();
+const role=document.getElementById("modRole").value;
+
+if(!uid)return message("UID ያስገቡ።");
+
+try{
+await setDoc(doc(db,"admins",uid),{
+role:"moderator",
+updatedAt:serverTimestamp(),
+updatedBy:currentUser.uid
+});
+message("Moderator ፈቃድ ተሰጥቷል።");
+document.getElementById("modUid").value="";
+}catch(error){
+message("ፈቃድ መስጠት አልተቻለም፦ "+error.message);
+}
+};
+
+window.loadReports=async(category="all",button)=>{
+if(!currentUser)return;
+
+if(button){
+document.querySelectorAll("#admin .tabs button").forEach(b=>b.classList.remove("active"));
+button.classList.add("active");
+}
+
+const target=document.getElementById("reportList");
+target.textContent="በመጫን ላይ...";
+
+try{
+const snap=await getDocs(
+query(collection(db,"reports"),orderBy("createdAt","desc"),limit(100))
+);
+
+let reports=snap.docs.map(d=>({id:d.id,...d.data()}));
+
+if(category!=="all"){
+reports=reports.filter(r=>r.category===category);
+}
+
+target.innerHTML="";
+
+if(!reports.length){
+target.textContent="ሪፖርት የለም።";
+return;
+}
+
+for(const report of reports){
+const box=document.createElement("div");
+box.className="record";
+
+const title=document.createElement("h4");
+title.textContent=(report.category||"")+" — "+(report.title||report.type||"ሪፖርት");
+
+const location=document.createElement("p");
+location.textContent="ቦታ፦ "+(report.location||"—")+" | ቀን፦ "+(report.date||"—");
+
+const description=document.createElement("p");
+description.textContent=report.description||"";
+
+const status=document.createElement("p");
+status.className="small";
+status.textContent="ሁኔታ፦ "+(report.status||"pending");
+
+box.append(title,location,description,status);
+
+const actions=document.createElement("div");
+actions.className="row";
+
+for(const [label,newStatus] of [
+["ተቀበል","approved"],
+["ከልክል","rejected"],
+["በጥበቃ አቆይ","pending"]
+]){
+const button=document.createElement("button");
+button.className="action "+(newStatus==="approved"?"green":newStatus==="rejected"?"red":"secondary");
+button.textContent=label;
+button.onclick=()=>changeStatus(report.id,newStatus);
+actions.append(button);
+}
+
+box.append(actions);
+target.append(box);
+}
+
+}catch(error){
+target.textContent="ሪፖርቶችን ማንበብ አልተቻለም፦ "+error.message;
+}
+};
+
+async function changeStatus(id,status){
+try{
+await updateDoc(doc(db,"reports",id),{
+status:status,
+reviewedBy:currentUser.uid,
+reviewedAt:serverTimestamp()
+});
+await loadReports("all");
+message("የሪፖርቱ ሁኔታ ተቀይሯል።");
+}catch(error){
+message("ማሻሻል አልተቻለም፦ "+error.message);
+}
+}
+
+async function loadPublicMissing(){
+const element=document.getElementById("publicMissing");
+
+try{
+const snap=await getDocs(
+query(
+collection(db,"reports"),
+where("category","==","missing"),
+where("status","==","approved"),
+limit(30)
+)
+);
+
+element.innerHTML="";
+
+if(snap.empty){
+element.textContent="የተፈቀደ ሪፖርት የለም።";
+return;
+}
+
+snap.forEach(document=>{
+const report=document.data();
+const box=document.createElement("div");
+box.className="record";
+
+const title=document.createElement("h4");
+title.textContent=(report.type||"")+" — "+(report.title||"");
+
+const location=document.createElement("p");
+location.textContent=(report.location||"")+" | "+(report.date||"");
+
+const description=document.createElement("p");
+description.textContent=report.description||"";
+
+box.append(title,location,description);
+element.append(box);
+});
+
+}catch(error){
+element.textContent="ሪፖርቶችን ማሳየት አልተቻለም።";
+}
+}
+
+loadPublicMissing();
 </script>
 
 </body>

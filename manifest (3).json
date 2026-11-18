@@ -1,0 +1,41 @@
+{
+  "background_color": "#ffffff",
+  "description": "SAFETY 360 - የሕዝብ ደህንነት፣ የጋራ ኃላፊነት",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "SAFETY 360",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "safety_360",
+  "start_url": "/",
+  "theme_color": "#102b46",
+  "icons": [
+    {
+      "src": "https://lege123-lab.github.io/SAFTY-360/favicon-64.png",
+      "type": "image/png",
+      "sizes": "64x64",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 64,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://lege123-lab.github.io/SAFTY-360/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "isSquare": true,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 180,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ],
+  "id": "com.safety360"
+}

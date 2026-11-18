@@ -1,46 +1,29 @@
+
 {
-  "background_color": "#102b46",
+  "id": "/SAFTY-360/",
+  "name": "SAFETY 360",
+  "short_name": "SAFETY 360",
   "description": "SAFETY 360 - የሕዝብ ደህንነት፣ የጋራ ኃላፊነት",
+  "lang": "am",
   "dir": "ltr",
-  "display": "standalone",
-  "name": "SAFETY-360",
-  "orientation": "portrait",
-  "scope": "/SAFTY-360/",
-  "short_name": "SAFETY-360",
   "start_url": "/SAFTY-360/",
-  "theme_color": "#102b46",
+  "scope": "/SAFTY-360/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#102B46",
+  "theme_color": "#102B46",
   "icons": [
     {
-      "src": "https://lege123-lab.github.io/SAFTY-360/favicon-64.png",
+      "src": "/SAFTY-360/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "sizes": "64x64",
-      "isSquare": true,
-      "isPng": true,
-      "isWebp": false,
-      "isJpg": false,
-      "width": 64,
-      "is512x512": false,
-      "is256x256": false,
-      "is192x192": false
+      "purpose": "any"
     },
     {
-      "src": "https://lege123-lab.github.io/SAFTY-360/apple-touch-icon.png",
+      "src": "/SAFTY-360/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "180x180",
-      "isSquare": true,
-      "isPng": true,
-      "isWebp": false,
-      "isJpg": false,
-      "width": 180,
-      "is512x512": false,
-      "is256x256": false,
-      "is192x192": false
+      "purpose": "any"
     }
-  ],
-  "id": "com.safety360.gedeb",
-  "lang": "am",
-  "display_override": [
-    "standalone",
-    "window-controls-overlay"
   ]
 }

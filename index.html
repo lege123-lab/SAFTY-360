@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="am">
 <head>
@@ -9,132 +10,819 @@
 <title>SAFETY 360 | የሕዝብ ደህንነት</title>
 <style>
 :root{--navy:#102b46;--blue:#1769aa;--light:#f2f6fa;--green:#16834a;--red:#c0392b;--orange:#d97706;--gray:#64748b}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#172b3a}
-header{background:var(--navy);color:white;padding:22px 15px;text-align:center}header h1{margin:0;font-size:27px}
-header p{margin:8px 0;color:#dbeafe}nav{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;background:#183b5c;padding:10px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#172b3a}
+header{background:var(--navy);color:white;padding:22px 15px;text-align:center}
+header h1{margin:0;font-size:27px}
+header p{margin:8px 0;color:#dbeafe}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;background:#183b5c;padding:10px}
 nav button{background:transparent;color:white;border:1px solid #54728e;border-radius:7px;padding:10px;cursor:pointer}
-main{max-width:1000px;margin:20px auto;padding:0 13px}section{display:none;background:white;padding:20px;margin-bottom:18px;border-radius:12px;box-shadow:0 2px 9px #0001}
-section.active{display:block}h2{color:var(--navy);margin-top:0}h3{color:var(--blue)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.card,.report{background:#f8fafc;border:1px solid #dce7f0;border-radius:10px;padding:15px;margin:10px 0}
+main{max-width:1000px;margin:20px auto;padding:0 13px}
+section{display:none;background:white;padding:20px;margin-bottom:18px;border-radius:12px;box-shadow:0 2px 9px #0001}
+section.active{display:block}
+h2{color:var(--navy);margin-top:0}
+h3{color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.card,.report{background:#f8fafc;border:1px solid #dce7f0;border-radius:10px;padding:15px;margin:10px 0}
 input,textarea,select{display:block;width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:7px;font-size:15px;background:white}
-textarea{min-height:100px}label{font-weight:bold;font-size:14px}.btn{border:0;background:var(--blue);color:white;padding:11px 16px;border-radius:7px;cursor:pointer;margin:4px 3px 4px 0}
-.green{background:var(--green)}.red{background:var(--red)}.orange{background:var(--orange)}.gray{background:#64748b}
+textarea{min-height:100px}
+label{font-weight:bold;font-size:14px}
+.btn{border:0;background:var(--blue);color:white;padding:11px 16px;border-radius:7px;cursor:pointer;margin:4px 3px 4px 0}
+.green{background:var(--green)}
+.red{background:var(--red)}
+.orange{background:var(--orange)}
+.gray{background:#64748b}
 .notice{padding:12px;background:#eff6ff;border-left:4px solid var(--blue);border-radius:6px;margin:12px 0;line-height:1.7}
-.message{padding:11px;margin:10px 0;border-radius:7px;display:none;line-height:1.6}.success{display:block;background:#dcfce7;color:#166534}.error{display:block;background:#fee2e2;color:#991b1b}.info{display:block;background:#dbeafe;color:#1e40af}
-.hidden{display:none!important}.status{display:inline-block;padding:4px 9px;border-radius:20px;font-size:12px;font-weight:bold;background:#e2e8f0}
-.pending{background:#fef3c7;color:#92400e}.approved,.resolved{background:#dcfce7;color:#166534}.rejected{background:#fee2e2;color:#991b1b}.held{background:#e0e7ff;color:#3730a3}
-.stat{font-size:27px;font-weight:bold;color:var(--navy)}footer{background:var(--navy);color:white;text-align:center;padding:22px;margin-top:30px;line-height:1.8}
-small{color:var(--gray)}hr{border:0;border-top:1px solid #e2e8f0;margin:20px 0}
-@media(max-width:500px){header h1{font-size:23px}section{padding:15px}nav button{font-size:12px;padding:9px}}
+.message{padding:11px;margin:10px 0;border-radius:7px;display:none;line-height:1.6}
+.success{display:block;background:#dcfce7;color:#166534}
+.error{display:block;background:#fee2e2;color:#991b1b}
+.info{display:block;background:#dbeafe;color:#1e40af}
+.hidden{display:none!important}
+.status{display:inline-block;padding:4px 9px;border-radius:20px;font-size:12px;font-weight:bold;background:#e2e8f0}
+.pending{background:#fef3c7;color:#92400e}
+.approved,.resolved{background:#dcfce7;color:#166534}
+.rejected{background:#fee2e2;color:#991b1b}
+.held{background:#e0e7ff;color:#3730a3}
+.stat{font-size:27px;font-weight:bold;color:var(--navy)}
+footer{background:var(--navy);color:white;text-align:center;padding:22px;margin-top:30px;line-height:1.8}
+small{color:var(--gray)}
+hr{border:0;border-top:1px solid #e2e8f0;margin:20px 0}
+@media(max-width:500px){
+header h1{font-size:23px}
+section{padding:15px}
+nav button{font-size:12px;padding:9px}
+}
 </style>
 </head>
 <body>
-<header><h1>SAFETY 360</h1><p>የሕዝብ ደህንነት፣ የጋራ ኃላፊነት</p><small style="color:#dbeafe">Community Safety Platform – Gedeb</small></header>
+
+<header>
+<h1>SAFETY 360</h1>
+<p>የሕዝብ ደህንነት፣ የጋራ ኃላፊነት</p>
+<small style="color:#dbeafe">Community Safety Platform – Gedeb</small>
+</header>
+
 <nav>
-<button onclick="showPage('home')">መነሻ</button><button onclick="showPage('incident')">ሪፖርት</button>
-<button onclick="showPage('missing')">የጠፉ / የተገኙ</button><button onclick="showPage('alerts')">ማስጠንቀቂያ</button>
-<button onclick="showPage('help')">እርዳታ</button><button onclick="showPage('admin')">Admin</button>
+<button onclick="showPage('home')">መነሻ</button>
+<button onclick="showPage('incident')">ሪፖርት</button>
+<button onclick="showPage('missing')">የጠፉ / የተገኙ</button>
+<button onclick="showPage('alerts')">ማስጠንቀቂያ</button>
+<button onclick="showPage('help')">እርዳታ</button>
+<button onclick="showPage('admin')">Admin</button>
 </nav>
+
 <main>
+
 <section id="home" class="active">
 <h2>እንኳን ወደ SAFETY 360 በደህና መጡ</h2>
 <p>ይህ መድረክ የደህንነት ሪፖርት፣ የጠፉ/የተገኙ መረጃዎች፣ ማስጠንቀቂያዎችና የእርዳታ ጥያቄዎችን ለማቅረብ ይረዳል።</p>
-<div class="notice"><b>አስፈላጊ፦</b> SAFETY 360 የማኅበረሰብ ማሳወቂያ መድረክ ነው፤ የፖሊስን ወይም የድንገተኛ አገልግሎትን አይተካም። በአስቸኳይ አደጋ በቀጥታ ለሚመለከተው ተቋም ያሳውቁ። SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አያደርግም።</div>
+
+<div class="notice">
+<b>አስፈላጊ፦</b>
+SAFETY 360 የማኅበረሰብ ማሳወቂያ መድረክ ነው፤ የፖሊስን ወይም የድንገተኛ አገልግሎትን አይተካም።
+በአስቸኳይ አደጋ በቀጥታ ለሚመለከተው ተቋም ያሳውቁ።
+SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አያደርግም።
+</div>
+
 <div class="grid">
-<div class="card"><h3>🚨 SOS የአደጋ ሪፖርት</h3><p>የአደጋ መረጃ በፍጥነት ያስገቡ።</p><button class="btn red" onclick="showPage('sos')">SOS ክፈት</button></div>
-<div class="card"><h3>📋 የደህንነት ሪፖርት</h3><p>የተከሰተ ክስተት ያሳውቁ።</p><button class="btn" onclick="showPage('incident')">ሪፖርት አድርግ</button></div>
-<div class="card"><h3>🔎 የጠፉ / የተገኙ</h3><p>የጠፉ ሰዎችን ወይም ንብረቶችን ያሳውቁ።</p><button class="btn" onclick="showPage('missing')">ዝርዝር</button></div>
-<div class="card"><h3>🤝 እርዳታ</h3><p>የእርዳታ ጥያቄ ያቅርቡ።</p><button class="btn" onclick="showPage('help')">እርዳታ ጠይቅ</button></div>
+<div class="card">
+<h3>🚨 SOS የአደጋ ሪፖርት</h3>
+<p>የአደጋ መረጃ በፍጥነት ያስገቡ።</p>
+<button class="btn red" onclick="showPage('sos')">SOS ክፈት</button>
+</div>
+<div class="card">
+<h3>📋 የደህንነት ሪፖርት</h3>
+<p>የተከሰተ ክስተት ያሳውቁ።</p>
+<button class="btn" onclick="showPage('incident')">ሪፖርት አድርግ</button>
+</div>
+<div class="card">
+<h3>🔎 የጠፉ / የተገኙ</h3>
+<p>የጠፉ ሰዎችን ወይም ንብረቶችን ያሳውቁ።</p>
+<button class="btn" onclick="showPage('missing')">ዝርዝር</button>
+</div>
+<div class="card">
+<h3>🤝 እርዳታ</h3>
+<p>የእርዳታ ጥያቄ ያቅርቡ።</p>
+<button class="btn" onclick="showPage('help')">እርዳታ ጠይቅ</button>
+</div>
 </div>
 </section>
 
 <section id="sos">
 <h2>🚨 SOS – የአደጋ ሪፖርት</h2>
-<div class="notice">ይህ ቅጽ ወደ SAFETY 360 የአደጋ ሪፖርት ይልካል። በራሱ የፖሊስ/አምቡላንስ ጥሪ አያደርግም። አስቸኳይ አደጋ ካለ በቀጥታ ለአካባቢዎ ድንገተኛ አገልግሎት ይደውሉ።</div>
+<div class="notice">
+ይህ ቅጽ ወደ SAFETY 360 የአደጋ ሪፖርት ይልካል።
+በራሱ የፖሊስ/አምቡላንስ ጥሪ አያደርግም።
+አስቸኳይ አደጋ ካለ በቀጥታ ለአካባቢዎ ድንገተኛ አገልግሎት ይደውሉ።
+</div>
 <form id="sosForm">
-<label>የአደጋ ዓይነት</label><select name="type" required><option value="">ይምረጡ</option><option>የጤና አደጋ</option><option>የደህንነት አደጋ</option><option>የእሳት አደጋ</option><option>የትራፊክ አደጋ</option><option>ሌላ</option></select>
-<label>ቦታ / አድራሻ</label><input name="location" required maxlength="200" placeholder="ከተማ፣ ቀበሌ፣ መንደር...">
-<button class="btn gray" type="button" id="gpsBtn">📍 GPS ቦታዬን አግኝ</button><p id="gpsStatus"><small>GPS አማራጭ ነው።</small></p>
-<input type="hidden" name="latitude"><input type="hidden" name="longitude">
-<label>የሚያገኙበት ስልክ</label><input name="contact" maxlength="30">
-<label>አጭር መግለጫ</label><textarea name="description" required maxlength="1000"></textarea>
+<label>የአደጋ ዓይነት</label>
+<select name="type" required>
+<option value="">ይምረጡ</option>
+<option>የጤና አደጋ</option>
+<option>የደህንነት አደጋ</option>
+<option>የእሳት አደጋ</option>
+<option>የትራፊክ አደጋ</option>
+<option>ሌላ</option>
+</select>
+<label>ቦታ / አድራሻ</label>
+<input name="location" required maxlength="200" placeholder="ከተማ፣ ቀበሌ፣ መንደር...">
+<button class="btn gray" type="button" id="gpsBtn">📍 GPS ቦታዬን አግኝ</button>
+<p id="gpsStatus"><small>GPS አማራጭ ነው።</small></p>
+<input type="hidden" name="latitude">
+<input type="hidden" name="longitude">
+<label>የሚያገኙበት ስልክ</label>
+<input name="contact" maxlength="30">
+<label>አጭር መግለጫ</label>
+<textarea name="description" required maxlength="1000"></textarea>
 <button class="btn red" type="submit">SOS ሪፖርት ላክ</button>
-</form><div id="sosMessage" class="message"></div>
+</form>
+<div id="sosMessage" class="message"></div>
 </section>
 
-<section id="incident"><h2>🚨 የደህንነት ሪፖርት</h2>
+<section id="incident">
+<h2>🚨 የደህንነት ሪፖርት</h2>
 <form id="incidentForm">
-<label>የክስተቱ ርዕስ</label><input name="title" required maxlength="100">
-<label>የክስተቱ ዓይነት</label><select name="type" required><option value="">ይምረጡ</option><option>የደህንነት ችግር</option><option>የትራፊክ አደጋ</option><option>የእሳት አደጋ</option><option>የንብረት ጉዳት</option><option>ሌላ</option></select>
-<label>ቦታ</label><input name="location" required maxlength="200"><label>ዝርዝር</label><textarea name="description" required maxlength="2000"></textarea>
-<label>ስልክ (አማራጭ)</label><input name="contact" maxlength="30"><button class="btn green" type="submit">ሪፖርት ላክ</button>
-</form><div id="incidentMessage" class="message"></div></section>
+<label>የክስተቱ ርዕስ</label>
+<input name="title" required maxlength="100">
+<label>የክስተቱ ዓይነት</label>
+<select name="type" required>
+<option value="">ይምረጡ</option>
+<option>የደህንነት ችግር</option>
+<option>የትራፊክ አደጋ</option>
+<option>የእሳት አደጋ</option>
+<option>የንብረት ጉዳት</option>
+<option>ሌላ</option>
+</select>
+<label>ቦታ</label>
+<input name="location" required maxlength="200">
+<label>ዝርዝር</label>
+<textarea name="description" required maxlength="2000"></textarea>
+<label>ስልክ (አማራጭ)</label>
+<input name="contact" maxlength="30">
+<button class="btn green" type="submit">ሪፖርት ላክ</button>
+</form>
+<div id="incidentMessage" class="message"></div>
+</section>
 
-<section id="missing"><h2>🔎 የጠፉ / የተገኙ ሰዎችና ንብረቶች</h2>
-<div class="notice">የሰዎችን ስም፣ ፎቶ ወይም የግል መረጃ ለሕዝብ ከማሳየት በፊት በተቋም ማረጋገጥ አለበት።</div>
-<form id="missingForm"><label>ዓይነት</label><select name="type" required><option value="">ይምረጡ</option><option>የጠፋ ሰው</option><option>የተገኘ ሰው</option><option>የጠፋ ንብረት</option><option>የተገኘ ንብረት</option></select>
-<label>ርዕስ</label><input name="title" required maxlength="100"><label>ቦታ</label><input name="location" required maxlength="200">
-<label>ዝርዝር መግለጫ</label><textarea name="description" required maxlength="2000"></textarea><label>ስልክ</label><input name="contact" maxlength="30">
-<button class="btn green" type="submit">መረጃ ላክ</button></form><div id="missingMessage" class="message"></div><hr><h3>የተፈቀዱ ማሳወቂያዎች</h3><div id="publicMissingList">በመጫን ላይ...</div></section>
+<section id="missing">
+<h2>🔎 የጠፉ / የተገኙ ሰዎችና ንብረቶች</h2>
+<div class="notice">
+የሰዎችን ስም፣ ፎቶ ወይም የግል መረጃ ለሕዝብ ከማሳየት በፊት በተቋም ማረጋገጥ አለበት።
+</div>
+<form id="missingForm">
+<label>ዓይነት</label>
+<select name="type" required>
+<option value="">ይምረጡ</option>
+<option>የጠፋ ሰው</option>
+<option>የተገኘ ሰው</option>
+<option>የጠፋ ንብረት</option>
+<option>የተገኘ ንብረት</option>
+</select>
+<label>ርዕስ</label>
+<input name="title" required maxlength="100">
+<label>ቦታ</label>
+<input name="location" required maxlength="200">
+<label>ዝርዝር መግለጫ</label>
+<textarea name="description" required maxlength="2000"></textarea>
+<label>ስልክ</label>
+<input name="contact" maxlength="30">
+<button class="btn green" type="submit">መረጃ ላክ</button>
+</form>
+<div id="missingMessage" class="message"></div>
+<hr>
+<h3>የተፈቀዱ ማሳወቂያዎች</h3>
+<div id="publicMissingList">በመጫን ላይ...</div>
+</section>
 
-<section id="alerts"><h2>📢 የደህንነት ማስጠንቀቂያዎች</h2><div id="publicAlerts">በመጫን ላይ...</div></section>
-<section id="help"><h2>🤝 እርዳታና ግንኙነት</h2>
-<form id="helpForm"><label>ርዕስ</label><input name="title" required maxlength="100"><label>የእርዳታ ዓይነት</label><select name="type" required><option value="">ይምረጡ</option><option>የጤና እርዳታ</option><option>የደህንነት እርዳታ</option><option>የማኅበራዊ እርዳታ</option><option>ሌላ</option></select>
-<label>ቦታ</label><input name="location" required maxlength="200"><label>ዝርዝር</label><textarea name="description" required maxlength="2000"></textarea><label>ስልክ</label><input name="contact" required maxlength="30"><button class="btn green" type="submit">ጥያቄ ላክ</button></form><div id="helpMessage" class="message"></div></section>
+<section id="alerts">
+<h2>📢 የደህንነት ማስጠንቀቂያዎች</h2>
+<div id="publicAlerts">በመጫን ላይ...</div>
+</section>
 
-<section id="admin"><h2>🔐 Admin Login</h2><div id="loginPanel"><form id="loginForm"><label>Email</label><input id="adminEmail" type="email" required><label>Password</label><input id="adminPassword" type="password" required><button class="btn" type="submit">Login</button><button class="btn gray" type="button" id="resetPasswordBtn">Password መቀየር</button></form></div><div id="loginMessage" class="message"></div>
-<div id="dashboard" class="hidden"><div class="notice">መለያ፦ <b id="loggedEmail"></b><br>ፈቃድ፦ <b id="loggedRole"></b></div><button class="btn red" id="logoutBtn">Logout</button>
-<h3>📊 አጠቃላይ ስታቲስቲክስ</h3><div class="grid"><div class="card">ጠቅላላ ሪፖርት<div id="statAll" class="stat">–</div></div><div class="card">Pending<div id="statPending" class="stat">–</div></div><div class="card">Approved<div id="statApproved" class="stat">–</div></div><div class="card">Resolved<div id="statResolved" class="stat">–</div></div></div>
-<hr><h3>📋 የሪፖርት አስተዳደር</h3><select id="reportFilter"><option value="all">ሁሉንም</option><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option><option value="held">On Hold</option><option value="resolved">Resolved</option></select><button class="btn" id="refreshReports">Refresh</button><div id="adminReports"></div>
-<hr><h3>📢 ማስጠንቀቂያ ማተም</h3><form id="alertForm"><label>ርዕስ</label><input name="title" required maxlength="100"><label>መልዕክት</label><textarea name="description" required maxlength="2000"></textarea><label>ቦታ</label><input name="location" required maxlength="200"><button class="btn orange" type="submit">ማስጠንቀቂያ አትም</button></form><div id="alertMessage" class="message"></div>
-<div id="userAdmin" class="hidden"><hr><h3>👥 የሰራተኛ መለያዎች</h3><p>የAuthentication መለያ በFirebase Console ይፈጠራል፤ ከዚያ UID እዚህ ይመዘገባል።</p><form id="staffForm"><label>Firebase Auth UID</label><input name="uid" required><label>Email</label><input name="email" type="email" required><label>Role</label><select name="role"><option value="moderator">Moderator</option></select><button class="btn" type="submit">Moderator መዝግብ</button></form><div id="staffMessage" class="message"></div></div>
-</div></section>
-</main><footer><b>SAFETY 360</b><br>የማኅበረሰብ ደህንነት ለሁሉም<br><small style="color:#dbeafe">Community Safety Platform – Gedeb</small></footer>
+<section id="help">
+<h2>🤝 እርዳታና ግንኙነት</h2>
+<form id="helpForm">
+<label>ርዕስ</label>
+<input name="title" required maxlength="100">
+<label>የእርዳታ ዓይነት</label>
+<select name="type" required>
+<option value="">ይምረጡ</option>
+<option>የጤና እርዳታ</option>
+<option>የደህንነት እርዳታ</option>
+<option>የማኅበራዊ እርዳታ</option>
+<option>ሌላ</option>
+</select>
+<label>ቦታ</label>
+<input name="location" required maxlength="200">
+<label>ዝርዝር</label>
+<textarea name="description" required maxlength="2000"></textarea>
+<label>ስልክ</label>
+<input name="contact" required maxlength="30">
+<button class="btn green" type="submit">ጥያቄ ላክ</button>
+</form>
+<div id="helpMessage" class="message"></div>
+</section>
+
+<section id="admin">
+<h2>🔐 Admin Login</h2>
+
+<div id="loginPanel">
+<form id="loginForm">
+<label>Email</label>
+<input id="adminEmail" type="email" required>
+<label>Password</label>
+<input id="adminPassword" type="password" required>
+<button class="btn" type="submit">Login</button>
+<button class="btn gray" type="button" id="resetPasswordBtn">Password መቀየር</button>
+</form>
+</div>
+
+<div id="loginMessage" class="message"></div>
+
+<div id="dashboard" class="hidden">
+<div class="notice">
+መለያ፦ <b id="loggedEmail"></b><br>
+ፈቃድ፦ <b id="loggedRole"></b>
+</div>
+
+<button class="btn red" id="logoutBtn">Logout</button>
+
+<h3>📊 አጠቃላይ ስታቲስቲክስ</h3>
+<div class="grid">
+<div class="card">ጠቅላላ ሪፖርት<div id="statAll" class="stat">–</div></div>
+<div class="card">Pending<div id="statPending" class="stat">–</div></div>
+<div class="card">Approved<div id="statApproved" class="stat">–</div></div>
+<div class="card">Resolved<div id="statResolved" class="stat">–</div></div>
+</div>
+
+<hr>
+<h3>📋 የሪፖርት አስተዳደር</h3>
+<select id="reportFilter">
+<option value="all">ሁሉንም</option>
+<option value="pending">Pending</option>
+<option value="approved">Approved</option>
+<option value="rejected">Rejected</option>
+<option value="held">On Hold</option>
+<option value="resolved">Resolved</option>
+</select>
+<button class="btn" id="refreshReports">Refresh</button>
+<div id="adminReports"></div>
+
+<hr>
+<h3>📢 ማስጠንቀቂያ ማተም</h3>
+<form id="alertForm">
+<label>ርዕስ</label>
+<input name="title" required maxlength="100">
+<label>መልዕክት</label>
+<textarea name="description" required maxlength="2000"></textarea>
+<label>ቦታ</label>
+<input name="location" required maxlength="200">
+<button class="btn orange" type="submit">ማስጠንቀቂያ አትም</button>
+</form>
+<div id="alertMessage" class="message"></div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<b>SAFETY 360</b><br>
+የማኅበረሰብ ደህንነት ለሁሉም<br>
+<small style="color:#dbeafe">Community Safety Platform – Gedeb</small>
+</footer>
 
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getAuth,signInWithEmailAndPassword,sendPasswordResetEmail,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {getFirestore,collection,doc,getDoc,getDocs,addDoc,query,where,limit,serverTimestamp,updateDoc,orderBy,setDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+sendPasswordResetEmail,
+signOut,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+doc,
+getDoc,
+getDocs,
+addDoc,
+query,
+where,
+limit,
+serverTimestamp,
+updateDoc,
+orderBy,
+deleteDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig={
- apiKey:"AIzaSyAyp6TkXPsp69-RKQGyUzJWgdc-pQSInA0",
- authDomain:"safety-360-8f4fe.firebaseapp.com",
- projectId:"safety-360-8f4fe",
- storageBucket:"safety-360-8f4fe.firebasestorage.app",
- messagingSenderId:"847898173616",
- appId:"1:847898173616:web:177774b6e6cf02b3895b75",
- measurementId:"G-SL9GRJ2F5L"
+apiKey:"AIzaSyAyp6TkXPsp69-RKQGyUzJWgdc-pQSInA0",
+authDomain:"safety-360-8f4fe.firebaseapp.com",
+projectId:"safety-360-8f4fe",
+storageBucket:"safety-360-8f4fe.firebasestorage.app",
+messagingSenderId:"847898173616",
+appId:"1:847898173616:web:177774b6e6cf02b3895b75",
+measurementId:"G-SL9GRJ2F5L"
 };
-const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
-let currentUser=null,currentRole=null;
-window.showPage=id=>{document.querySelectorAll("main section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");if(id==="missing")loadPublicMissing();if(id==="alerts")loadPublicAlerts();};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+let currentUser=null;
+let currentRole=null;
+
+window.showPage=id=>{
+document.querySelectorAll("main section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+if(id==="missing")loadPublicMissing();
+if(id==="alerts")loadPublicAlerts();
+};
+
 const $=id=>document.getElementById(id);
+
 const formObject=form=>Object.fromEntries(new FormData(form).entries());
-function msg(id,text,type="info"){const el=$(id);el.textContent=text;el.className="message "+type;}
-function err(e){return e?.message||"ያልታወቀ ስህተት";}
-async function addReport(form,category,messageId,extra={}){const d=formObject(form);const record={category,title:String(d.title||category).trim(),type:String(d.type||"").trim(),location:String(d.location||"").trim(),description:String(d.description||"").trim(),contact:String(d.contact||"").trim(),status:"pending",createdAt:serverTimestamp(),...extra};try{const ref=await addDoc(collection(db,"reports"),record);msg(messageId,"ሪፖርትዎ ተልኳል። የክትትል ቁጥር፦ "+ref.id,"success");form.reset();}catch(e){msg(messageId,"መላክ አልተቻለም፦ "+err(e),"error");}}
-$("incidentForm").addEventListener("submit",e=>{e.preventDefault();addReport(e.target,"incident","incidentMessage");});
-$("missingForm").addEventListener("submit",e=>{e.preventDefault();addReport(e.target,"missing","missingMessage");});
-$("helpForm").addEventListener("submit",e=>{e.preventDefault();addReport(e.target,"help","helpMessage");});
-$("sosForm").addEventListener("submit",e=>{e.preventDefault();const d=formObject(e.target);addReport(e.target,"incident","sosMessage",{title:"SOS – "+d.type,type:"SOS: "+d.type,location:d.location,description:d.description,contact:d.contact||"",latitude:d.latitude||"",longitude:d.longitude||""});});
-$("gpsBtn").addEventListener("click",()=>{if(!navigator.geolocation){$("gpsStatus").textContent="ይህ መሣሪያ GPS አይደግፍም።";return;} $("gpsStatus").textContent="ቦታ በማግኘት ላይ...";navigator.geolocation.getCurrentPosition(p=>{const f=$("sosForm");f.elements.latitude.value=p.coords.latitude;f.elements.longitude.value=p.coords.longitude;$("gpsStatus").textContent="GPS ተገኝቷል።";},e=>{$("gpsStatus").textContent="GPS አልተገኘም። የቦታ መግለጫ ያስገቡ።";},{enableHighAccuracy:true,timeout:12000});});
-async function loadPublicMissing(){const box=$("publicMissingList");box.textContent="በመጫን ላይ...";try{const s=await getDocs(query(collection(db,"reports"),where("category","==","missing"),where("status","==","approved"),limit(50)));box.innerHTML="";if(s.empty){box.textContent="የተፈቀደ ማሳወቂያ የለም።";return;}s.forEach(d=>{const r=d.data(),el=document.createElement("article");el.className="report";for(const [tag,text] of [["h3",r.title],["p","ዓይነት፦ "+r.type],["p","ቦታ፦ "+r.location],["p",r.description]]){const n=document.createElement(tag);n.textContent=text||"";el.append(n);}box.append(el);});}catch(e){box.textContent="መረጃ መጫን አልተቻለም፦ "+err(e);}}
-async function loadPublicAlerts(){const box=$("publicAlerts");box.textContent="በመጫን ላይ...";try{const s=await getDocs(query(collection(db,"alerts"),where("status","==","approved"),orderBy("createdAt","desc"),limit(30)));box.innerHTML="";if(s.empty){box.textContent="የተፈቀደ ማስጠንቀቂያ የለም።";return;}s.forEach(d=>{const r=d.data(),el=document.createElement("article");el.className="report";const h=document.createElement("h3");h.textContent="📢 "+r.title;const p=document.createElement("p");p.textContent=r.description;const l=document.createElement("p");l.textContent="ቦታ፦ "+r.location;el.append(h,p,l);box.append(el);});}catch(e){box.textContent="ማስጠንቀቂያ መጫን አልተቻለም፦ "+err(e);}}
-$("loginForm").addEventListener("submit",async e=>{e.preventDefault();msg("loginMessage","በመግባት ላይ...");try{await signInWithEmailAndPassword(auth,$("adminEmail").value.trim(),$("adminPassword").value);}catch(x){msg("loginMessage","Login አልተሳካም፦ "+err(x),"error");}});
-$("resetPasswordBtn").addEventListener("click",async()=>{const email=$("adminEmail").value.trim();if(!email){msg("loginMessage","መጀመሪያ Email ያስገቡ።","error");return;}try{await sendPasswordResetEmail(auth,email);msg("loginMessage","የPassword መቀየሪያ መመሪያ ወደ Email ተልኳል።","success");}catch(e){msg("loginMessage",err(e),"error");}});
-async function roleFor(user){const a=await getDoc(doc(db,"users","admin"));if(a.exists()&&a.data().uid===user.uid&&a.data().role==="super_admin"&&a.data().active===true)return "super_admin";const u=await getDoc(doc(db,"users",user.uid));if(u.exists()&&u.data().uid===user.uid&&u.data().role==="moderator"&&u.data().active===true)return "moderator";return null;}
-function loggedOut(){$("loginPanel").classList.remove("hidden");$("dashboard").classList.add("hidden");currentUser=null;currentRole=null;}
-function loggedIn(user,role){currentUser=user;currentRole=role;$("loginPanel").classList.add("hidden");$("dashboard").classList.remove("hidden");$("loggedEmail").textContent=user.email||"";$("loggedRole").textContent=role;$("userAdmin").classList.toggle("hidden",role!=="super_admin");loadAdminReports();}
-onAuthStateChanged(auth,async user=>{if(!user){loggedOut();return;}try{const role=await roleFor(user);if(!role){msg("loginMessage","ይህ መለያ የAdmin/Moderator ፈቃድ የለውም።","error");await signOut(auth);return;}msg("loginMessage","በትክክል ገብተዋል።","success");loggedIn(user,role);}catch(e){msg("loginMessage","ፈቃድ ማረጋገጥ አልተሳካም፦ "+err(e),"error");}});
-$("logoutBtn").addEventListener("click",()=>signOut(auth));
-async function loadAdminReports(){if(!currentUser)return;const box=$("adminReports");box.textContent="በመጫን ላይ...";try{const s=await getDocs(query(collection(db,"reports"),orderBy("createdAt","desc"),limit(200)));const all=s.docs.map(d=>({id:d.id,...d.data()}));$("statAll").textContent=all.length;$("statPending").textContent=all.filter(x=>x.status==="pending").length;$("statApproved").textContent=all.filter(x=>x.status==="approved").length;$("statResolved").textContent=all.filter(x=>x.status==="resolved").length;const filter=$("reportFilter").value,items=all.filter(x=>filter==="all"||x.status===filter);box.innerHTML="";if(!items.length){box.textContent="ሪፖርት አልተገኘም።";return;}items.forEach(r=>{const el=document.createElement("article");el.className="report";const h=document.createElement("h3");h.textContent=r.title||"ሪፖርት";const p=document.createElement("p");p.textContent="ምድብ፦ "+r.category+" / "+r.type+" | ቦታ፦ "+r.location;const desc=document.createElement("p");desc.textContent=r.description;const c=document.createElement("p");c.textContent="ስልክ፦ "+(r.contact||"አልተገለጸም");const st=document.createElement("span");st.className="status "+r.status;st.textContent="Status: "+r.status;el.append(h,p,desc,c,st);const actions=document.createElement("div");["approved","rejected","held","resolved"].forEach(state=>{const b=document.createElement("button");b.className="btn "+(state==="approved"||state==="resolved"?"green":state==="rejected"?"red":"orange");b.textContent=state;b.addEventListener("click",()=>changeStatus(r.id,state));actions.append(b);});if(currentRole==="super_admin"){const del=document.createElement("button");del.className="btn red";del.textContent="Delete";del.addEventListener("click",()=>deleteReport(r.id));actions.append(del);}el.append(actions);box.append(el);});}catch(e){box.textContent="ሪፖርቶችን ማምጣት አልተቻለም፦ "+err(e);}}
-async function audit(action,targetId,details={}){await addDoc(collection(db,"auditLogs"),{actorUid:currentUser.uid,actorEmail:currentUser.email||"",action,targetId,details,createdAt:serverTimestamp()});}
-async function changeStatus(id,status){try{await updateDoc(doc(db,"reports",id),{status,reviewedBy:currentUser.uid,reviewedAt:serverTimestamp()});await audit("report_status_changed",id,{status});loadAdminReports();}catch(e){alert("ሁኔታ መቀየር አልተቻለም፦ "+err(e));}}
-async function deleteReport(id){if(currentRole!=="super_admin"||!confirm("ይህን ሪፖርት በቋሚነት መሰረዝ ይፈልጋሉ?"))return;try{const {deleteDoc}=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");await deleteDoc(doc(db,"reports",id));await audit("report_deleted",id);loadAdminReports();}catch(e){alert(err(e));}}
-$("refreshReports").addEventListener("click",loadAdminReports);$("reportFilter").addEventListener("change",loadAdminReports);
-$("alertForm").addEventListener("submit",async e=>{e.preventDefault();if(!currentUser)return;const d=formObject(e.target);try{const ref=await addDoc(collection(db,"alerts"),{title:d.title.trim(),description:d.description.trim(),location:d.location.trim(),status:"approved",createdBy:currentUser.uid,createdAt:serverTimestamp()});await audit("alert_published",ref.id);msg("alertMessage","ማስጠንቀቂያው ታትሟል።","success");e.target.reset();loadPublicAlerts();}catch(x){msg("alertMessage","ማተም አልተሳካም፦ "+err(x),"error");}});
-$("staffForm").addEventListener("submit",async e=>{e.preventDefault();if(currentRole!=="super_admin")return;const d=formObject(e.target);try{await setDoc(doc(db,"users",d.uid),{uid:d.uid,email:d.email.trim(),role:"moderator",active:true,createdAt:serverTimestamp(),createdBy:currentUser.uid});await audit("moderator_created",d.uid);msg("staffMessage","Moderator ተመዝግቧል።","success");e.target.reset();}catch(x){msg("staffMessage","መመዝገብ አልተሳካም፦ "+err(x),"error");}});
+
+function msg(id,text,type="info"){
+const el=$(id);
+el.textContent=text;
+el.className="message "+type;
+}
+
+function err(e){
+return e?.message||"ያልታወቀ ስህተት";
+}
+
+/* የAudit መዝገብ፤ ይህ ካልተሳካ ዋናውን ተግባር አያቋርጥም */
+async function audit(action,targetId,details={}){
+try{
+if(!currentUser)return;
+await addDoc(collection(db,"auditLogs"),{
+actorUid:currentUser.uid,
+actorEmail:currentUser.email||"",
+action,
+targetId,
+details,
+createdAt:serverTimestamp()
+});
+}catch(e){
+console.warn("Audit log failed:",e);
+}
+}
+
+/* ሪፖርት መላክ */
+async function addReport(form,category,messageId,extra={}){
+const d=formObject(form);
+
+const record={
+category,
+title:String(d.title||category).trim(),
+type:String(d.type||"").trim(),
+location:String(d.location||"").trim(),
+description:String(d.description||"").trim(),
+contact:String(d.contact||"").trim(),
+status:"pending",
+createdAt:serverTimestamp(),
+...extra
+};
+
+try{
+const ref=await addDoc(collection(db,"reports"),record);
+msg(messageId,"ሪፖርትዎ ተልኳል። የክትትል ቁጥር፦ "+ref.id,"success");
+form.reset();
+}catch(e){
+msg(messageId,"መላክ አልተቻለም፦ "+err(e),"error");
+}
+}
+
+$("incidentForm").addEventListener("submit",e=>{
+e.preventDefault();
+addReport(e.target,"incident","incidentMessage");
+});
+
+$("missingForm").addEventListener("submit",e=>{
+e.preventDefault();
+addReport(e.target,"missing","missingMessage");
+});
+
+$("helpForm").addEventListener("submit",e=>{
+e.preventDefault();
+addReport(e.target,"help","helpMessage");
+});
+
+$("sosForm").addEventListener("submit",e=>{
+e.preventDefault();
+const d=formObject(e.target);
+
+addReport(e.target,"incident","sosMessage",{
+title:"SOS – "+d.type,
+type:"SOS: "+d.type,
+location:d.location,
+description:d.description,
+contact:d.contact||"",
+latitude:d.latitude||"",
+longitude:d.longitude||""
+});
+});
+
+/* GPS */
+$("gpsBtn").addEventListener("click",()=>{
+if(!navigator.geolocation){
+$("gpsStatus").textContent="ይህ መሣሪያ GPS አይደግፍም።";
+return;
+}
+
+$("gpsStatus").textContent="ቦታ በማግኘት ላይ...";
+
+navigator.geolocation.getCurrentPosition(
+p=>{
+const f=$("sosForm");
+f.elements.latitude.value=p.coords.latitude;
+f.elements.longitude.value=p.coords.longitude;
+$("gpsStatus").textContent="GPS ተገኝቷል።";
+},
+e=>{
+$("gpsStatus").textContent="GPS አልተገኘም። የቦታ መግለጫ ያስገቡ።";
+},
+{enableHighAccuracy:true,timeout:12000}
+);
+});
+
+/* የተፈቀዱ የጠፉ/የተገኙ መረጃዎች */
+async function loadPublicMissing(){
+const box=$("publicMissingList");
+box.textContent="በመጫን ላይ...";
+
+try{
+const s=await getDocs(query(
+collection(db,"reports"),
+where("category","==","missing"),
+where("status","==","approved"),
+limit(50)
+));
+
+box.innerHTML="";
+
+if(s.empty){
+box.textContent="የተፈቀደ ማሳወቂያ የለም።";
+return;
+}
+
+s.forEach(d=>{
+const r=d.data();
+const el=document.createElement("article");
+el.className="report";
+
+for(const [tag,text] of [
+["h3",r.title],
+["p","ዓይነት፦ "+r.type],
+["p","ቦታ፦ "+r.location],
+["p",r.description]
+]){
+const n=document.createElement(tag);
+n.textContent=text||"";
+el.append(n);
+}
+
+box.append(el);
+});
+
+}catch(e){
+box.textContent="መረጃ መጫን አልተቻለም፦ "+err(e);
+}
+}
+
+/* የሕዝብ ማስጠንቀቂያዎች */
+async function loadPublicAlerts(){
+const box=$("publicAlerts");
+box.textContent="በመጫን ላይ...";
+
+try{
+const s=await getDocs(query(
+collection(db,"alerts"),
+where("status","==","approved"),
+orderBy("createdAt","desc"),
+limit(30)
+));
+
+box.innerHTML="";
+
+if(s.empty){
+box.textContent="የተፈቀደ ማስጠንቀቂያ የለም።";
+return;
+}
+
+s.forEach(d=>{
+const r=d.data();
+const el=document.createElement("article");
+el.className="report";
+
+const h=document.createElement("h3");
+h.textContent="📢 "+r.title;
+
+const p=document.createElement("p");
+p.textContent=r.description;
+
+const l=document.createElement("p");
+l.textContent="ቦታ፦ "+r.location;
+
+el.append(h,p,l);
+box.append(el);
+});
+
+}catch(e){
+box.textContent="ማስጠንቀቂያ መጫን አልተቻለም፦ "+err(e);
+}
+}
+
+/* Admin Login */
+$("loginForm").addEventListener("submit",async e=>{
+e.preventDefault();
+msg("loginMessage","በመግባት ላይ...");
+
+try{
+await signInWithEmailAndPassword(
+auth,
+$("adminEmail").value.trim(),
+$("adminPassword").value
+);
+}catch(x){
+msg("loginMessage","Login አልተሳካም፦ "+err(x),"error");
+}
+});
+
+/* Password reset */
+$("resetPasswordBtn").addEventListener("click",async()=>{
+const email=$("adminEmail").value.trim();
+
+if(!email){
+msg("loginMessage","መጀመሪያ Email ያስገቡ።","error");
+return;
+}
+
+try{
+await sendPasswordResetEmail(auth,email);
+msg("loginMessage","የPassword መቀየሪያ መመሪያ ወደ Email ተልኳል።","success");
+}catch(e){
+msg("loginMessage",err(e),"error");
+}
+});
+
+/* አንድ Super Admin ብቻ */
+async function roleFor(user){
+const a=await getDoc(doc(db,"users","admin"));
+
+if(
+a.exists()&&
+a.data().uid===user.uid&&
+a.data().role==="super_admin"&&
+a.data().active===true
+){
+return "super_admin";
+}
+
+return null;
+}
+
+function loggedOut(){
+$("loginPanel").classList.remove("hidden");
+$("dashboard").classList.add("hidden");
+currentUser=null;
+currentRole=null;
+}
+
+function loggedIn(user,role){
+currentUser=user;
+currentRole=role;
+
+$("loginPanel").classList.add("hidden");
+$("dashboard").classList.remove("hidden");
+$("loggedEmail").textContent=user.email||"";
+$("loggedRole").textContent=role;
+
+loadAdminReports();
+}
+
+/* Firebase Login ማረጋገጫ */
+onAuthStateChanged(auth,async user=>{
+if(!user){
+loggedOut();
+return;
+}
+
+try{
+const role=await roleFor(user);
+
+if(!role){
+msg("loginMessage","ይህ መለያ የSuper Admin ፈቃድ የለውም።","error");
+await signOut(auth);
+return;
+}
+
+msg("loginMessage","በትክክል ገብተዋል።","success");
+loggedIn(user,role);
+
+}catch(e){
+msg("loginMessage","ፈቃድ ማረጋገጥ አልተሳካም፦ "+err(e),"error");
+}
+});
+
+/* Logout */
+$("logoutBtn").addEventListener("click",()=>{
+signOut(auth);
+});
+
+/* የAdmin ሪፖርት ዝርዝር */
+async function loadAdminReports(){
+if(!currentUser||currentRole!=="super_admin")return;
+
+const box=$("adminReports");
+box.textContent="በመጫን ላይ...";
+
+try{
+const s=await getDocs(query(
+collection(db,"reports"),
+orderBy("createdAt","desc"),
+limit(200)
+));
+
+const all=s.docs.map(d=>({
+id:d.id,
+...d.data()
+}));
+
+$("statAll").textContent=all.length;
+$("statPending").textContent=all.filter(x=>x.status==="pending").length;
+$("statApproved").textContent=all.filter(x=>x.status==="approved").length;
+$("statResolved").textContent=all.filter(x=>x.status==="resolved").length;
+
+const filter=$("reportFilter").value;
+
+const items=all.filter(x=>
+filter==="all"||x.status===filter
+);
+
+box.innerHTML="";
+
+if(!items.length){
+box.textContent="ሪፖርት አልተገኘም።";
+return;
+}
+
+items.forEach(r=>{
+const el=document.createElement("article");
+el.className="report";
+
+const h=document.createElement("h3");
+h.textContent=r.title||"ሪፖርት";
+
+const p=document.createElement("p");
+p.textContent="ምድብ፦ "+r.category+" / "+r.type+" | ቦታ፦ "+r.location;
+
+const desc=document.createElement("p");
+desc.textContent=r.description;
+
+const c=document.createElement("p");
+c.textContent="ስልክ፦ "+(r.contact||"አልተገለጸም");
+
+const st=document.createElement("span");
+st.className="status "+r.status;
+st.textContent="Status: "+r.status;
+
+el.append(h,p,desc,c,st);
+
+const actions=document.createElement("div");
+
+["approved","rejected","held","resolved"].forEach(state=>{
+const b=document.createElement("button");
+
+b.className="btn "+
+(state==="approved"||state==="resolved"?"green":
+state==="rejected"?"red":"orange");
+
+b.textContent=state;
+
+b.addEventListener("click",()=>{
+changeStatus(r.id,state);
+});
+
+actions.append(b);
+});
+
+/* የሪፖርት ማጥፊያ - Super Admin ብቻ */
+const del=document.createElement("button");
+del.className="btn red";
+del.textContent="🗑 Delete";
+
+del.addEventListener("click",()=>{
+deleteReport(r.id);
+});
+
+actions.append(del);
+el.append(actions);
+box.append(el);
+});
+
+}catch(e){
+box.textContent="ሪፖርቶችን ማምጣት አልተቻለም፦ "+err(e);
+}
+}
+
+/* የሪፖርት ሁኔታ መቀየር */
+async function changeStatus(id,status){
+if(currentRole!=="super_admin")return;
+
+try{
+await updateDoc(doc(db,"reports",id),{
+status,
+reviewedBy:currentUser.uid,
+reviewedAt:serverTimestamp()
+});
+
+await audit("report_status_changed",id,{status});
+
+await loadAdminReports();
+
+}catch(e){
+alert("ሁኔታ መቀየር አልተቻለም፦ "+err(e));
+}
+}
+
+/* የሪፖርት ቋሚ ስረዛ */
+async function deleteReport(id){
+if(currentRole!=="super_admin"||!currentUser)return;
+
+const confirmDelete=confirm(
+"ይህን ሪፖርት በቋሚነት መሰረዝ ይፈልጋሉ?\n\nይህ ተግባር ከተፈጸመ በኋላ መረጃው አይመለስም።"
+);
+
+if(!confirmDelete)return;
+
+try{
+await deleteDoc(doc(db,"reports",id));
+
+await audit("report_deleted",id);
+
+alert("ሪፖርቱ ተሰርዟል።");
+
+await loadAdminReports();
+
+}catch(e){
+alert(
+"ሪፖርቱን ማጥፋት አልተቻለም።\n\n"+
+err(e)+
+"\n\nየFirebase Firestore Rules ፈቃድ መፈተሽ ያስፈልጋል።"
+);
+}
+}
+
+/* Refresh */
+$("refreshReports").addEventListener("click",loadAdminReports);
+$("reportFilter").addEventListener("change",loadAdminReports);
+
+/* ማስጠንቀቂያ ማተም */
+$("alertForm").addEventListener("submit",async e=>{
+e.preventDefault();
+
+if(!currentUser||currentRole!=="super_admin")return;
+
+const d=formObject(e.target);
+
+try{
+const ref=await addDoc(collection(db,"alerts"),{
+title:d.title.trim(),
+description:d.description.trim(),
+location:d.location.trim(),
+status:"approved",
+createdBy:currentUser.uid,
+createdAt:serverTimestamp()
+});
+
+await audit("alert_published",ref.id);
+
+msg("alertMessage","ማስጠንቀቂያው ታትሟል።","success");
+
+e.target.reset();
+loadPublicAlerts();
+
+}catch(x){
+msg("alertMessage","ማተም አልተሳካም፦ "+err(x),"error");
+}
+});
+
+/* የመጀመሪያ መረጃ ጭነት */
 loadPublicMissing();
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(console.warn));}
+
+/* Service Worker */
+if("serviceWorker" in navigator){
+window.addEventListener("load",()=>{
+navigator.serviceWorker.register("./service-worker.js").catch(console.warn);
+});
+}
 </script>
-</body></html>
+</body>
+</html>

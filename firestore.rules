@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function superAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/admin)
+        && get(/databases/$(database)/documents/users/admin).data.uid == request.auth.uid
+        && get(/databases/$(database)/documents/users/admin).data.role == "super_admin"
+        && get(/databases/$(database)/documents/users/admin).data.active == true;
+    }
+
+    function moderator() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.uid == request.auth.uid
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "moderator"
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.active == true;
+    }
+
+    function staff() {
+      return superAdmin() || moderator();
+    }
+
+    function validText(value, max) {
+      return value is string && value.size() > 0 && value.size() <= max;
+    }
+
+    match /reports/{reportId} {
+      allow read: if (resource.data.status == "approved") || staff();
+
+      // Public users can submit reports, but cannot choose a public status.
+      allow create: if
+        request.resource.data.keys().hasOnly([
+          "category", "title", "type", "location", "description",
+          "contact", "status", "createdAt", "latitude", "longitude"
+        ])
+        && request.resource.data.category in ["incident", "missing", "help"]
+        && validText(request.resource.data.title, 100)
+        && validText(request.resource.data.type, 80)
+        && validText(request.resource.data.location, 200)
+        && validText(request.resource.data.description, 2000)
+        && request.resource.data.contact is string
+        && request.resource.data.contact.size() <= 30
+        && (!("latitude" in request.resource.data) || request.resource.data.latitude is number)
+        && (!("longitude" in request.resource.data) || request.resource.data.longitude is number)
+        && request.resource.data.status == "pending"
+        && request.resource.data.createdAt == request.time;
+
+      allow update: if staff()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          "status", "reviewedBy", "reviewedAt", "resolutionNote", "updatedAt"
+        ])
+        && request.resource.data.status in ["pending", "approved", "rejected", "held", "resolved"];
+
+      allow delete: if superAdmin();
+    }
+
+    match /alerts/{alertId} {
+      allow read: if resource.data.status == "approved" || staff();
+      allow create: if staff()
+        && request.resource.data.keys().hasOnly([
+          "title", "description", "location", "status", "createdBy", "createdAt"
+        ])
+        && validText(request.resource.data.title, 100)
+        && validText(request.resource.data.description, 2000)
+        && validText(request.resource.data.location, 200)
+        && request.resource.data.status == "approved"
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if superAdmin();
+    }
+
+    match /users/{userId} {
+      allow read: if (signedIn() && request.auth.uid == userId) || superAdmin();
+      // User roles must be provisioned by a super admin from a trusted environment.
+      allow create, update, delete: if superAdmin();
+    }
+
+    match /auditLogs/{logId} {
+      allow read: if superAdmin();
+      allow create: if staff()
+        && request.resource.data.actorUid == request.auth.uid
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function activeStaff() {
+      return request.auth != null
+        && (
+          (firestore.exists(/databases/(default)/documents/users/admin)
+            && firestore.get(/databases/(default)/documents/users/admin).data.uid == request.auth.uid
+            && firestore.get(/databases/(default)/documents/users/admin).data.role == "super_admin"
+            && firestore.get(/databases/(default)/documents/users/admin).data.active == true)
+          ||
+          (firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+            && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.uid == request.auth.uid
+            && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == "moderator"
+            && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.active == true)
+        );
+    }
+
+    match /evidence/{allPaths=**} {
+      allow read: if activeStaff();
+      allow write: if activeStaff()
+        && request.resource != null
+        && request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*|video/.*|application/pdf');
+    }
+  }
+}

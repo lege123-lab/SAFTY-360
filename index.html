@@ -8,43 +8,139 @@
 <meta name="description" content="SAFETY 360 - የሕዝብ ደህንነት፣ የጋራ ኃላፊነት">
 <link rel="manifest" href="./manifest.json">
 <title>SAFETY 360 | የሕዝብ ደህንነት</title>
+
 <style>
-:root{--navy:#102b46;--blue:#1769aa;--light:#f2f6fa;--green:#16834a;--red:#c0392b;--orange:#d97706;--gray:#64748b}
+:root{
+--navy:#102b46;
+--blue:#1769aa;
+--light:#f2f6fa;
+--green:#16834a;
+--red:#c0392b;
+--orange:#d97706;
+--gray:#64748b
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#172b3a}
-header{background:var(--navy);color:white;padding:22px 15px;text-align:center}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:var(--light);
+color:#172b3a
+}
+header{
+background:var(--navy);
+color:white;
+padding:22px 15px;
+text-align:center
+}
 header h1{margin:0;font-size:27px}
 header p{margin:8px 0;color:#dbeafe}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;background:#183b5c;padding:10px}
-nav button{background:transparent;color:white;border:1px solid #54728e;border-radius:7px;padding:10px;cursor:pointer}
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:7px;
+background:#183b5c;
+padding:10px
+}
+nav button{
+background:transparent;
+color:white;
+border:1px solid #54728e;
+border-radius:7px;
+padding:10px;
+cursor:pointer
+}
 main{max-width:1000px;margin:20px auto;padding:0 13px}
-section{display:none;background:white;padding:20px;margin-bottom:18px;border-radius:12px;box-shadow:0 2px 9px #0001}
+section{
+display:none;
+background:white;
+padding:20px;
+margin-bottom:18px;
+border-radius:12px;
+box-shadow:0 2px 9px #0001
+}
 section.active{display:block}
 h2{color:var(--navy);margin-top:0}
 h3{color:var(--blue)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.card,.report{background:#f8fafc;border:1px solid #dce7f0;border-radius:10px;padding:15px;margin:10px 0}
-input,textarea,select{display:block;width:100%;padding:12px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:7px;font-size:15px;background:white}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:12px
+}
+.card,.report{
+background:#f8fafc;
+border:1px solid #dce7f0;
+border-radius:10px;
+padding:15px;
+margin:10px 0
+}
+input,textarea,select{
+display:block;
+width:100%;
+padding:12px;
+margin:8px 0 14px;
+border:1px solid #cbd5e1;
+border-radius:7px;
+font-size:15px;
+background:white
+}
 textarea{min-height:100px}
 label{font-weight:bold;font-size:14px}
-.btn{border:0;background:var(--blue);color:white;padding:11px 16px;border-radius:7px;cursor:pointer;margin:4px 3px 4px 0}
+.btn{
+border:0;
+background:var(--blue);
+color:white;
+padding:11px 16px;
+border-radius:7px;
+cursor:pointer;
+margin:4px 3px 4px 0
+}
+button:disabled{opacity:.6;cursor:not-allowed}
 .green{background:var(--green)}
 .red{background:var(--red)}
 .orange{background:var(--orange)}
 .gray{background:#64748b}
-.notice{padding:12px;background:#eff6ff;border-left:4px solid var(--blue);border-radius:6px;margin:12px 0;line-height:1.7}
-.message{padding:11px;margin:10px 0;border-radius:7px;display:none;line-height:1.6}
+.notice{
+padding:12px;
+background:#eff6ff;
+border-left:4px solid var(--blue);
+border-radius:6px;
+margin:12px 0;
+line-height:1.7
+}
+.message{
+padding:11px;
+margin:10px 0;
+border-radius:7px;
+display:none;
+line-height:1.6;
+overflow-wrap:anywhere
+}
 .success{display:block;background:#dcfce7;color:#166534}
 .error{display:block;background:#fee2e2;color:#991b1b}
 .info{display:block;background:#dbeafe;color:#1e40af}
 .hidden{display:none!important}
-.status{display:inline-block;padding:4px 9px;border-radius:20px;font-size:12px;font-weight:bold;background:#e2e8f0}
+.status{
+display:inline-block;
+padding:4px 9px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+background:#e2e8f0
+}
 .pending{background:#fef3c7;color:#92400e}
 .approved,.resolved{background:#dcfce7;color:#166534}
 .rejected{background:#fee2e2;color:#991b1b}
 .held{background:#e0e7ff;color:#3730a3}
 .stat{font-size:27px;font-weight:bold;color:var(--navy)}
-footer{background:var(--navy);color:white;text-align:center;padding:22px;margin-top:30px;line-height:1.8}
+footer{
+background:var(--navy);
+color:white;
+text-align:center;
+padding:22px;
+margin-top:30px;
+line-height:1.8
+}
 small{color:var(--gray)}
 hr{border:0;border-top:1px solid #e2e8f0;margin:20px 0}
 @media(max-width:500px){
@@ -54,6 +150,7 @@ nav button{font-size:12px;padding:9px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -75,47 +172,63 @@ nav button{font-size:12px;padding:9px}
 
 <section id="home" class="active">
 <h2>እንኳን ወደ SAFETY 360 በደህና መጡ</h2>
-<p>ይህ መድረክ የደህንነት ሪፖርት፣ የጠፉ/የተገኙ መረጃዎች፣ ማስጠንቀቂያዎችና የእርዳታ ጥያቄዎችን ለማቅረብ ይረዳል።</p>
+
+<p>
+ይህ መድረክ የደህንነት ሪፖርት፣
+የጠፉ/የተገኙ መረጃዎች፣
+ማስጠንቀቂያዎችና የእርዳታ ጥያቄዎችን
+ለማቅረብ ይረዳል።
+</p>
 
 <div class="notice">
 <b>አስፈላጊ፦</b>
-SAFETY 360 የማኅበረሰብ ማሳወቂያ መድረክ ነው፤ የፖሊስን ወይም የድንገተኛ አገልግሎትን አይተካም።
+SAFETY 360 የማኅበረሰብ ማሳወቂያ መድረክ ነው፤
+የፖሊስን ወይም የድንገተኛ አገልግሎትን አይተካም።
 በአስቸኳይ አደጋ በቀጥታ ለሚመለከተው ተቋም ያሳውቁ።
 SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አያደርግም።
 </div>
 
 <div class="grid">
+
 <div class="card">
 <h3>🚨 SOS የአደጋ ሪፖርት</h3>
 <p>የአደጋ መረጃ በፍጥነት ያስገቡ።</p>
 <button class="btn red" onclick="showPage('sos')">SOS ክፈት</button>
 </div>
+
 <div class="card">
 <h3>📋 የደህንነት ሪፖርት</h3>
 <p>የተከሰተ ክስተት ያሳውቁ።</p>
 <button class="btn" onclick="showPage('incident')">ሪፖርት አድርግ</button>
 </div>
+
 <div class="card">
 <h3>🔎 የጠፉ / የተገኙ</h3>
 <p>የጠፉ ሰዎችን ወይም ንብረቶችን ያሳውቁ።</p>
 <button class="btn" onclick="showPage('missing')">ዝርዝር</button>
 </div>
+
 <div class="card">
 <h3>🤝 እርዳታ</h3>
 <p>የእርዳታ ጥያቄ ያቅርቡ።</p>
 <button class="btn" onclick="showPage('help')">እርዳታ ጠይቅ</button>
 </div>
+
 </div>
 </section>
 
+<!-- SOS -->
 <section id="sos">
 <h2>🚨 SOS – የአደጋ ሪፖርት</h2>
+
 <div class="notice">
 ይህ ቅጽ ወደ SAFETY 360 የአደጋ ሪፖርት ይልካል።
 በራሱ የፖሊስ/አምቡላንስ ጥሪ አያደርግም።
 አስቸኳይ አደጋ ካለ በቀጥታ ለአካባቢዎ ድንገተኛ አገልግሎት ይደውሉ።
 </div>
+
 <form id="sosForm">
+
 <label>የአደጋ ዓይነት</label>
 <select name="type" required>
 <option value="">ይምረጡ</option>
@@ -125,26 +238,40 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <option>የትራፊክ አደጋ</option>
 <option>ሌላ</option>
 </select>
+
 <label>ቦታ / አድራሻ</label>
-<input name="location" required maxlength="200" placeholder="ከተማ፣ ቀበሌ፣ መንደር...">
-<button class="btn gray" type="button" id="gpsBtn">📍 GPS ቦታዬን አግኝ</button>
+<input name="location" required maxlength="200"
+placeholder="ከተማ፣ ቀበሌ፣ መንደር...">
+
+<button class="btn gray" type="button" id="gpsBtn">
+📍 GPS ቦታዬን አግኝ
+</button>
+
 <p id="gpsStatus"><small>GPS አማራጭ ነው።</small></p>
+
 <input type="hidden" name="latitude">
 <input type="hidden" name="longitude">
+
 <label>የሚያገኙበት ስልክ</label>
 <input name="contact" maxlength="30">
+
 <label>አጭር መግለጫ</label>
 <textarea name="description" required maxlength="1000"></textarea>
+
 <button class="btn red" type="submit">SOS ሪፖርት ላክ</button>
 </form>
+
 <div id="sosMessage" class="message"></div>
 </section>
 
+<!-- INCIDENT -->
 <section id="incident">
 <h2>🚨 የደህንነት ሪፖርት</h2>
+
 <form id="incidentForm">
 <label>የክስተቱ ርዕስ</label>
 <input name="title" required maxlength="100">
+
 <label>የክስተቱ ዓይነት</label>
 <select name="type" required>
 <option value="">ይምረጡ</option>
@@ -154,22 +281,31 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <option>የንብረት ጉዳት</option>
 <option>ሌላ</option>
 </select>
+
 <label>ቦታ</label>
 <input name="location" required maxlength="200">
+
 <label>ዝርዝር</label>
 <textarea name="description" required maxlength="2000"></textarea>
+
 <label>ስልክ (አማራጭ)</label>
 <input name="contact" maxlength="30">
+
 <button class="btn green" type="submit">ሪፖርት ላክ</button>
 </form>
+
 <div id="incidentMessage" class="message"></div>
 </section>
 
+<!-- MISSING -->
 <section id="missing">
 <h2>🔎 የጠፉ / የተገኙ ሰዎችና ንብረቶች</h2>
+
 <div class="notice">
-የሰዎችን ስም፣ ፎቶ ወይም የግል መረጃ ለሕዝብ ከማሳየት በፊት በተቋም ማረጋገጥ አለበት።
+የሰዎችን ስም፣ ፎቶ ወይም የግል መረጃ
+ለሕዝብ ከማሳየት በፊት በተቋም ማረጋገጥ አለበት።
 </div>
+
 <form id="missingForm">
 <label>ዓይነት</label>
 <select name="type" required>
@@ -179,32 +315,43 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <option>የጠፋ ንብረት</option>
 <option>የተገኘ ንብረት</option>
 </select>
+
 <label>ርዕስ</label>
 <input name="title" required maxlength="100">
+
 <label>ቦታ</label>
 <input name="location" required maxlength="200">
+
 <label>ዝርዝር መግለጫ</label>
 <textarea name="description" required maxlength="2000"></textarea>
+
 <label>ስልክ</label>
 <input name="contact" maxlength="30">
+
 <button class="btn green" type="submit">መረጃ ላክ</button>
 </form>
+
 <div id="missingMessage" class="message"></div>
+
 <hr>
 <h3>የተፈቀዱ ማሳወቂያዎች</h3>
 <div id="publicMissingList">በመጫን ላይ...</div>
 </section>
 
+<!-- ALERTS -->
 <section id="alerts">
 <h2>📢 የደህንነት ማስጠንቀቂያዎች</h2>
 <div id="publicAlerts">በመጫን ላይ...</div>
 </section>
 
+<!-- HELP -->
 <section id="help">
 <h2>🤝 እርዳታና ግንኙነት</h2>
+
 <form id="helpForm">
 <label>ርዕስ</label>
 <input name="title" required maxlength="100">
+
 <label>የእርዳታ ዓይነት</label>
 <select name="type" required>
 <option value="">ይምረጡ</option>
@@ -213,17 +360,23 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <option>የማኅበራዊ እርዳታ</option>
 <option>ሌላ</option>
 </select>
+
 <label>ቦታ</label>
 <input name="location" required maxlength="200">
+
 <label>ዝርዝር</label>
 <textarea name="description" required maxlength="2000"></textarea>
+
 <label>ስልክ</label>
 <input name="contact" required maxlength="30">
+
 <button class="btn green" type="submit">ጥያቄ ላክ</button>
 </form>
+
 <div id="helpMessage" class="message"></div>
 </section>
 
+<!-- ADMIN -->
 <section id="admin">
 <h2>🔐 Admin Login</h2>
 
@@ -231,16 +384,21 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <form id="loginForm">
 <label>Email</label>
 <input id="adminEmail" type="email" required>
+
 <label>Password</label>
 <input id="adminPassword" type="password" required>
+
 <button class="btn" type="submit">Login</button>
-<button class="btn gray" type="button" id="resetPasswordBtn">Password መቀየር</button>
+<button class="btn gray" type="button" id="resetPasswordBtn">
+Password መቀየር
+</button>
 </form>
 </div>
 
 <div id="loginMessage" class="message"></div>
 
 <div id="dashboard" class="hidden">
+
 <div class="notice">
 መለያ፦ <b id="loggedEmail"></b><br>
 ፈቃድ፦ <b id="loggedRole"></b>
@@ -249,15 +407,32 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <button class="btn red" id="logoutBtn">Logout</button>
 
 <h3>📊 አጠቃላይ ስታቲስቲክስ</h3>
+
 <div class="grid">
-<div class="card">ጠቅላላ ሪፖርት<div id="statAll" class="stat">–</div></div>
-<div class="card">Pending<div id="statPending" class="stat">–</div></div>
-<div class="card">Approved<div id="statApproved" class="stat">–</div></div>
-<div class="card">Resolved<div id="statResolved" class="stat">–</div></div>
+<div class="card">
+ጠቅላላ ሪፖርት
+<div id="statAll" class="stat">–</div>
+</div>
+
+<div class="card">
+Pending
+<div id="statPending" class="stat">–</div>
+</div>
+
+<div class="card">
+Approved
+<div id="statApproved" class="stat">–</div>
+</div>
+
+<div class="card">
+Resolved
+<div id="statResolved" class="stat">–</div>
+</div>
 </div>
 
 <hr>
 <h3>📋 የሪፖርት አስተዳደር</h3>
+
 <select id="reportFilter">
 <option value="all">ሁሉንም</option>
 <option value="pending">Pending</option>
@@ -266,20 +441,26 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 <option value="held">On Hold</option>
 <option value="resolved">Resolved</option>
 </select>
+
 <button class="btn" id="refreshReports">Refresh</button>
 <div id="adminReports"></div>
 
 <hr>
 <h3>📢 ማስጠንቀቂያ ማተም</h3>
+
 <form id="alertForm">
 <label>ርዕስ</label>
 <input name="title" required maxlength="100">
+
 <label>መልዕክት</label>
 <textarea name="description" required maxlength="2000"></textarea>
+
 <label>ቦታ</label>
 <input name="location" required maxlength="200">
+
 <button class="btn orange" type="submit">ማስጠንቀቂያ አትም</button>
 </form>
+
 <div id="alertMessage" class="message"></div>
 </div>
 </section>
@@ -293,7 +474,10 @@ SOS ቁልፉ ሪፖርት ብቻ ይመዘግባል፤ የአደጋ ጥሪ አ�
 </footer>
 
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
 getAuth,
@@ -336,16 +520,21 @@ const db=getFirestore(app);
 let currentUser=null;
 let currentRole=null;
 
+const $=id=>document.getElementById(id);
+
 window.showPage=id=>{
-document.querySelectorAll("main section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
+document.querySelectorAll("main section").forEach(s=>{
+s.classList.remove("active");
+});
+
+$(id).classList.add("active");
+
 if(id==="missing")loadPublicMissing();
 if(id==="alerts")loadPublicAlerts();
 };
 
-const $=id=>document.getElementById(id);
-
-const formObject=form=>Object.fromEntries(new FormData(form).entries());
+const formObject=form=>
+Object.fromEntries(new FormData(form).entries());
 
 function msg(id,text,type="info"){
 const el=$(id);
@@ -357,10 +546,11 @@ function err(e){
 return e?.message||"ያልታወቀ ስህተት";
 }
 
-/* የAudit መዝገብ፤ ይህ ካልተሳካ ዋናውን ተግባር አያቋርጥም */
+/* AUDIT LOG */
 async function audit(action,targetId,details={}){
 try{
 if(!currentUser)return;
+
 await addDoc(collection(db,"auditLogs"),{
 actorUid:currentUser.uid,
 actorEmail:currentUser.email||"",
@@ -369,13 +559,15 @@ targetId,
 details,
 createdAt:serverTimestamp()
 });
+
 }catch(e){
 console.warn("Audit log failed:",e);
 }
 }
 
-/* ሪፖርት መላክ */
+/* REPORT SUBMISSION */
 async function addReport(form,category,messageId,extra={}){
+
 const d=formObject(form);
 
 const record={
@@ -391,46 +583,83 @@ createdAt:serverTimestamp(),
 };
 
 try{
-const ref=await addDoc(collection(db,"reports"),record);
-msg(messageId,"ሪፖርትዎ ተልኳል። የክትትል ቁጥር፦ "+ref.id,"success");
+
+const ref=await addDoc(
+collection(db,"reports"),
+record
+);
+
+msg(
+messageId,
+"ሪፖርትዎ ተልኳል። የክትትል ቁጥር፦ "+ref.id,
+"success"
+);
+
 form.reset();
+
+if(messageId==="sosMessage"){
+$("gpsStatus").innerHTML="<small>GPS አማራጭ ነው።</small>";
+}
+
 }catch(e){
-msg(messageId,"መላክ አልተቻለም፦ "+err(e),"error");
+
+console.error("Report submission failed:",e);
+
+msg(
+messageId,
+"መላክ አልተቻለም፦ "+err(e),
+"error"
+);
+
 }
 }
 
+/* INCIDENT */
 $("incidentForm").addEventListener("submit",e=>{
 e.preventDefault();
 addReport(e.target,"incident","incidentMessage");
 });
 
+/* MISSING */
 $("missingForm").addEventListener("submit",e=>{
 e.preventDefault();
 addReport(e.target,"missing","missingMessage");
 });
 
+/* HELP */
 $("helpForm").addEventListener("submit",e=>{
 e.preventDefault();
 addReport(e.target,"help","helpMessage");
 });
 
+/* SOS - FIXED */
 $("sosForm").addEventListener("submit",e=>{
 e.preventDefault();
+
 const d=formObject(e.target);
 
-addReport(e.target,"incident","sosMessage",{
+const extra={
 title:"SOS – "+d.type,
-type:"SOS: "+d.type,
-location:d.location,
-description:d.description,
-contact:d.contact||"",
-latitude:d.latitude||"",
-longitude:d.longitude||""
-});
+type:"SOS: "+d.type
+};
+
+/* GPS ካለ ብቻ ይጨምራል */
+if(d.latitude && d.longitude){
+extra.latitude=String(d.latitude);
+extra.longitude=String(d.longitude);
+}
+
+addReport(
+e.target,
+"incident",
+"sosMessage",
+extra
+);
 });
 
 /* GPS */
 $("gpsBtn").addEventListener("click",()=>{
+
 if(!navigator.geolocation){
 $("gpsStatus").textContent="ይህ መሣሪያ GPS አይደግፍም።";
 return;
@@ -439,25 +668,39 @@ return;
 $("gpsStatus").textContent="ቦታ በማግኘት ላይ...";
 
 navigator.geolocation.getCurrentPosition(
+
 p=>{
+
 const f=$("sosForm");
+
 f.elements.latitude.value=p.coords.latitude;
 f.elements.longitude.value=p.coords.longitude;
-$("gpsStatus").textContent="GPS ተገኝቷል።";
+
+$("gpsStatus").textContent=
+"GPS ተገኝቷል። ኮኦርዲኔቶች ከሪፖርቱ ጋር ይመዘገባሉ።";
+
 },
+
 e=>{
-$("gpsStatus").textContent="GPS አልተገኘም። የቦታ መግለጫ ያስገቡ።";
+
+$("gpsStatus").textContent=
+"GPS አልተገኘም። የቦታ መግለጫ ያስገቡ።";
+
 },
+
 {enableHighAccuracy:true,timeout:12000}
 );
+
 });
 
-/* የተፈቀዱ የጠፉ/የተገኙ መረጃዎች */
+/* PUBLIC MISSING */
 async function loadPublicMissing(){
+
 const box=$("publicMissingList");
 box.textContent="በመጫን ላይ...";
 
 try{
+
 const s=await getDocs(query(
 collection(db,"reports"),
 where("category","==","missing"),
@@ -473,6 +716,7 @@ return;
 }
 
 s.forEach(d=>{
+
 const r=d.data();
 const el=document.createElement("article");
 el.className="report";
@@ -483,25 +727,32 @@ for(const [tag,text] of [
 ["p","ቦታ፦ "+r.location],
 ["p",r.description]
 ]){
+
 const n=document.createElement(tag);
 n.textContent=text||"";
 el.append(n);
+
 }
 
 box.append(el);
+
 });
 
 }catch(e){
+
 box.textContent="መረጃ መጫን አልተቻለም፦ "+err(e);
+
 }
 }
 
-/* የሕዝብ ማስጠንቀቂያዎች */
+/* PUBLIC ALERTS */
 async function loadPublicAlerts(){
+
 const box=$("publicAlerts");
 box.textContent="በመጫን ላይ...";
 
 try{
+
 const s=await getDocs(query(
 collection(db,"alerts"),
 where("status","==","approved"),
@@ -517,6 +768,7 @@ return;
 }
 
 s.forEach(d=>{
+
 const r=d.data();
 const el=document.createElement("article");
 el.className="report";
@@ -532,31 +784,46 @@ l.textContent="ቦታ፦ "+r.location;
 
 el.append(h,p,l);
 box.append(el);
+
 });
 
 }catch(e){
+
 box.textContent="ማስጠንቀቂያ መጫን አልተቻለም፦ "+err(e);
+
 }
 }
 
-/* Admin Login */
+/* ADMIN LOGIN */
 $("loginForm").addEventListener("submit",async e=>{
+
 e.preventDefault();
+
 msg("loginMessage","በመግባት ላይ...");
 
 try{
+
 await signInWithEmailAndPassword(
 auth,
 $("adminEmail").value.trim(),
 $("adminPassword").value
 );
+
 }catch(x){
-msg("loginMessage","Login አልተሳካም፦ "+err(x),"error");
+
+msg(
+"loginMessage",
+"Login አልተሳካም፦ "+err(x),
+"error"
+);
+
 }
+
 });
 
-/* Password reset */
+/* PASSWORD RESET */
 $("resetPasswordBtn").addEventListener("click",async()=>{
+
 const email=$("adminEmail").value.trim();
 
 if(!email){
@@ -565,15 +832,26 @@ return;
 }
 
 try{
+
 await sendPasswordResetEmail(auth,email);
-msg("loginMessage","የPassword መቀየሪያ መመሪያ ወደ Email ተልኳል።","success");
+
+msg(
+"loginMessage",
+"የPassword መቀየሪያ መመሪያ ወደ Email ተልኳል።",
+"success"
+);
+
 }catch(e){
+
 msg("loginMessage",err(e),"error");
+
 }
+
 });
 
-/* አንድ Super Admin ብቻ */
+/* SUPER ADMIN ROLE */
 async function roleFor(user){
+
 const a=await getDoc(doc(db,"users","admin"));
 
 if(
@@ -582,68 +860,97 @@ a.data().uid===user.uid&&
 a.data().role==="super_admin"&&
 a.data().active===true
 ){
+
 return "super_admin";
+
 }
 
 return null;
 }
 
+/* LOGOUT UI */
 function loggedOut(){
+
 $("loginPanel").classList.remove("hidden");
 $("dashboard").classList.add("hidden");
+
 currentUser=null;
 currentRole=null;
+
 }
 
+/* LOGIN UI */
 function loggedIn(user,role){
+
 currentUser=user;
 currentRole=role;
 
 $("loginPanel").classList.add("hidden");
 $("dashboard").classList.remove("hidden");
+
 $("loggedEmail").textContent=user.email||"";
 $("loggedRole").textContent=role;
 
 loadAdminReports();
+
 }
 
-/* Firebase Login ማረጋገጫ */
+/* AUTH STATE */
 onAuthStateChanged(auth,async user=>{
+
 if(!user){
 loggedOut();
 return;
 }
 
 try{
+
 const role=await roleFor(user);
 
 if(!role){
-msg("loginMessage","ይህ መለያ የSuper Admin ፈቃድ የለውም።","error");
+
+msg(
+"loginMessage",
+"ይህ መለያ የSuper Admin ፈቃድ የለውም።",
+"error"
+);
+
 await signOut(auth);
 return;
+
 }
 
 msg("loginMessage","በትክክል ገብተዋል።","success");
+
 loggedIn(user,role);
 
 }catch(e){
-msg("loginMessage","ፈቃድ ማረጋገጥ አልተሳካም፦ "+err(e),"error");
+
+msg(
+"loginMessage",
+"ፈቃድ ማረጋገጥ አልተሳካም፦ "+err(e),
+"error"
+);
+
 }
+
 });
 
-/* Logout */
+/* LOGOUT */
 $("logoutBtn").addEventListener("click",()=>{
 signOut(auth);
 });
 
-/* የAdmin ሪፖርት ዝርዝር */
+/* ADMIN REPORTS */
 async function loadAdminReports(){
+
 if(!currentUser||currentRole!=="super_admin")return;
 
 const box=$("adminReports");
 box.textContent="በመጫን ላይ...";
 
 try{
+
 const s=await getDocs(query(
 collection(db,"reports"),
 orderBy("createdAt","desc"),
@@ -656,9 +963,15 @@ id:d.id,
 }));
 
 $("statAll").textContent=all.length;
-$("statPending").textContent=all.filter(x=>x.status==="pending").length;
-$("statApproved").textContent=all.filter(x=>x.status==="approved").length;
-$("statResolved").textContent=all.filter(x=>x.status==="resolved").length;
+
+$("statPending").textContent=
+all.filter(x=>x.status==="pending").length;
+
+$("statApproved").textContent=
+all.filter(x=>x.status==="approved").length;
+
+$("statResolved").textContent=
+all.filter(x=>x.status==="resolved").length;
 
 const filter=$("reportFilter").value;
 
@@ -674,6 +987,7 @@ return;
 }
 
 items.forEach(r=>{
+
 const el=document.createElement("article");
 el.className="report";
 
@@ -681,7 +995,10 @@ const h=document.createElement("h3");
 h.textContent=r.title||"ሪፖርት";
 
 const p=document.createElement("p");
-p.textContent="ምድብ፦ "+r.category+" / "+r.type+" | ቦታ፦ "+r.location;
+p.textContent=
+"ምድብ፦ "+r.category+
+" / "+r.type+
+" | ቦታ፦ "+r.location;
 
 const desc=document.createElement("p");
 desc.textContent=r.description;
@@ -689,15 +1006,38 @@ desc.textContent=r.description;
 const c=document.createElement("p");
 c.textContent="ስልክ፦ "+(r.contact||"አልተገለጸም");
 
+el.append(h,p,desc,c);
+
+/* GPS */
+if(r.latitude&&r.longitude){
+
+const gps=document.createElement("p");
+gps.textContent="GPS፦ "+r.latitude+", "+r.longitude;
+el.append(gps);
+
+const map=document.createElement("a");
+map.href=
+"https://www.google.com/maps?q="+
+encodeURIComponent(r.latitude+","+r.longitude);
+
+map.target="_blank";
+map.rel="noopener noreferrer";
+map.textContent="📍 GPS በካርታ ክፈት";
+
+el.append(map);
+
+}
+
 const st=document.createElement("span");
 st.className="status "+r.status;
 st.textContent="Status: "+r.status;
 
-el.append(h,p,desc,c,st);
+el.append(st);
 
 const actions=document.createElement("div");
 
 ["approved","rejected","held","resolved"].forEach(state=>{
+
 const b=document.createElement("button");
 
 b.className="btn "+
@@ -711,10 +1051,12 @@ changeStatus(r.id,state);
 });
 
 actions.append(b);
+
 });
 
-/* የሪፖርት ማጥፊያ - Super Admin ብቻ */
+/* DELETE */
 const del=document.createElement("button");
+
 del.className="btn red";
 del.textContent="🗑 Delete";
 
@@ -723,24 +1065,34 @@ deleteReport(r.id);
 });
 
 actions.append(del);
+
 el.append(actions);
 box.append(el);
+
 });
 
 }catch(e){
-box.textContent="ሪፖርቶችን ማምጣት አልተቻለም፦ "+err(e);
-}
+
+box.textContent=
+"ሪፖርቶችን ማምጣት አልተቻለም፦ "+err(e);
+
 }
 
-/* የሪፖርት ሁኔታ መቀየር */
+}
+
+/* CHANGE STATUS */
 async function changeStatus(id,status){
-if(currentRole!=="super_admin")return;
+
+if(currentRole!=="super_admin"||!currentUser)return;
 
 try{
+
 await updateDoc(doc(db,"reports",id),{
+
 status,
 reviewedBy:currentUser.uid,
 reviewedAt:serverTimestamp()
+
 });
 
 await audit("report_status_changed",id,{status});
@@ -748,21 +1100,27 @@ await audit("report_status_changed",id,{status});
 await loadAdminReports();
 
 }catch(e){
+
 alert("ሁኔታ መቀየር አልተቻለም፦ "+err(e));
-}
+
 }
 
-/* የሪፖርት ቋሚ ስረዛ */
+}
+
+/* DELETE REPORT */
 async function deleteReport(id){
+
 if(currentRole!=="super_admin"||!currentUser)return;
 
 const confirmDelete=confirm(
-"ይህን ሪፖርት በቋሚነት መሰረዝ ይፈልጋሉ?\n\nይህ ተግባር ከተፈጸመ በኋላ መረጃው አይመለስም።"
+"ይህን ሪፖርት በቋሚነት መሰረዝ ይፈልጋሉ?\n\n"+
+"ይህ ተግባር ከተፈጸመ በኋላ መረጃው አይመለስም።"
 );
 
 if(!confirmDelete)return;
 
 try{
+
 await deleteDoc(doc(db,"reports",id));
 
 await audit("report_deleted",id);
@@ -772,20 +1130,24 @@ alert("ሪፖርቱ ተሰርዟል።");
 await loadAdminReports();
 
 }catch(e){
+
 alert(
 "ሪፖርቱን ማጥፋት አልተቻለም።\n\n"+
-err(e)+
-"\n\nየFirebase Firestore Rules ፈቃድ መፈተሽ ያስፈልጋል።"
+err(e)
 );
-}
+
 }
 
-/* Refresh */
+}
+
+/* REFRESH */
 $("refreshReports").addEventListener("click",loadAdminReports);
+
 $("reportFilter").addEventListener("change",loadAdminReports);
 
-/* ማስጠንቀቂያ ማተም */
+/* ALERT PUBLISH */
 $("alertForm").addEventListener("submit",async e=>{
+
 e.preventDefault();
 
 if(!currentUser||currentRole!=="super_admin")return;
@@ -793,36 +1155,58 @@ if(!currentUser||currentRole!=="super_admin")return;
 const d=formObject(e.target);
 
 try{
+
 const ref=await addDoc(collection(db,"alerts"),{
+
 title:d.title.trim(),
 description:d.description.trim(),
 location:d.location.trim(),
 status:"approved",
 createdBy:currentUser.uid,
 createdAt:serverTimestamp()
+
 });
 
 await audit("alert_published",ref.id);
 
-msg("alertMessage","ማስጠንቀቂያው ታትሟል።","success");
+msg(
+"alertMessage",
+"ማስጠንቀቂያው ታትሟል።",
+"success"
+);
 
 e.target.reset();
+
 loadPublicAlerts();
 
 }catch(x){
-msg("alertMessage","ማተም አልተሳካም፦ "+err(x),"error");
+
+msg(
+"alertMessage",
+"ማተም አልተሳካም፦ "+err(x),
+"error"
+);
+
 }
+
 });
 
-/* የመጀመሪያ መረጃ ጭነት */
+/* INITIAL LOAD */
 loadPublicMissing();
 
-/* Service Worker */
+/* SERVICE WORKER */
 if("serviceWorker" in navigator){
+
 window.addEventListener("load",()=>{
-navigator.serviceWorker.register("./service-worker.js").catch(console.warn);
+
+navigator.serviceWorker
+.register("./service-worker.js")
+.catch(console.warn);
+
 });
+
 }
+
 </script>
 </body>
 </html>
